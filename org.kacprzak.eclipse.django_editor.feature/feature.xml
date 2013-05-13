@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.kacprzak.eclipse.django.feature"
+      label="Django Templates Editor Feature"
+      version="1.1.0.qualifier"
+      provider-name="Zbigniew Kacprzak">
+
+   <description url="http://eclipse.kacprzak.org">
+      Django Templates Editor.
+This version covers syntax coloring:
+- Django tags, variables, filters
+- HTML tags
+- Inner JavaScript
+- Inner CSS
+Additionally deliveres Django tags as templates (Ctrl+space)
+   </description>
+
+   <copyright url="http://eclipse.kacprzak.org/django/copyright.html">
+      Copyright (c) 2012 Zbigniew Kacprzak
+   </copyright>
+
+   <license url="http://eclipse.kacprzak.org/django/copyright.html">
+      Eclipse Plugin License
+   </license>
+
+   <url>
+      <update label="Django Templates Editor" url="http://eclipse.kacprzak.org/updates/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.editors"/>
+   </requires>
+
+   <plugin
+         id="org.kacprzak.eclipse.django.editor.plugin"
+         download-size="75"
+         install-size="75"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

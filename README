@@ -1,0 +1,26 @@
+Eclipse projects
+----------------
+After you get source from repository, just import 3 projects into workspace:
+org.kacprzak.eclipse.django_editor.feature
+org.kacprzak.eclipse.django_editor.updates
+org.kacprzak.eclipse.django_editor.plugin
+
+Build
+-----
+1. Open org.kacprzak.eclipse.django_editor.plugin/plugin.xml
+   - Use Export Wizard
+   - Destination: specify directory where to put jar file with plugin
+     hint: Browse to select <project>\org.kacprzak.eclipse.django_editor.updates
+2. Open org.kacprzak.eclipse.django_editor.feature/feature.xml
+   - Use Export Wizard
+   - Destination: specify directory where to put jar file with plugin
+     hint: Browse to select <project>\org.kacprzak.eclipse.django_editor.updates
+3. Open org.kacprzak.eclipse.django_editor.updates/site.xml
+   - Build All
+   
+Publish
+-------
+1. Copy content of <project>\org.kacprzak.eclipse.django_editor.updates
+   to your updates page.
+   See also: http://eclipse.kacprzak.org/
+   

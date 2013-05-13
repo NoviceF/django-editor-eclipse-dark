@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.kacprzak.eclipse.django_editor.preferences.DjangoPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="org.kacprzak.eclipse.django_editor.editors.DjangoEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            default="true"
+            extensions="html,htm"
+            icon="icons/django.gif"
+            id="org.kacprzak.eclipse.django_editor.editors.DjangoEditor"
+            name="Django Editor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.kacprzak.eclipse.django_editor.preferences.DjangoEditorPreferencesPage"
+            id="org.kacprzak.eclipse.django_editor"
+            name="Django Editor">
+      </page>
+      <page
+            category="org.kacprzak.eclipse.django_editor"
+            class="org.kacprzak.eclipse.django_editor.templates.DjangoTemplatesPreferencesPage"
+            id="org.kacprzak.eclipse.django_editor.preferences.templates"
+            name="Templates">
+      </page>
+   </extension>
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="html,htm"
+            id="org.kacprzak.eclipse.django_editor.plugin.content-type"
+            name="Django File"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension point="org.eclipse.team.core.fileTypes">
+      <fileTypes
+            extension="html"
+            type="text">
+      </fileTypes>
+      <fileTypes
+            extension="htm"
+            type="text">
+      </fileTypes>
+   </extension>
+   <extension point="org.eclipse.ui.editors.templates">
+      <contextType
+            class="org.kacprzak.eclipse.django_editor.templates.DjangoContextType"
+            id="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
+            name="Django Tag">
+      </contextType>
+      <include file="templates/default-templates.xml">
+      </include>
+      <contextType
+            class="org.kacprzak.eclipse.django_editor.templates.DjangoContextType"
+            id="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+            name="Django Filter">
+      </contextType>
+      <include file="templates/default-filters.xml" >
+      </include>
+   </extension>
+</plugin>

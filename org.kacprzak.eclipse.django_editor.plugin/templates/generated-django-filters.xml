@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Adds the argument to the value."
+        enabled="true"
+        name="add"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.add"
+   >|add:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Capitalizes the first character of the value."
+        enabled="true"
+        name="capfirst"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.capfirst"
+   >|capfirst</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Centers the value in a field of a given width."
+        enabled="true"
+        name="center"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.center"
+   >|center:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Removes all values of arg from the given string."
+        enabled="true"
+        name="cut"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.cut"
+   >|cut:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Formats a date according to the given format."
+        enabled="true"
+        name="date"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.date"
+   >|date:${format}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="If value evaluates to False, uses the given default. Otherwise, uses the value."
+        enabled="true"
+        name="default"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.default"
+   >|default:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="If (and only if) value is None, uses the given default. Otherwise, uses the value."
+        enabled="true"
+        name="default_if_none"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.default_if_none"
+   >|default_if_none:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Takes a list of dictionaries and returns that list sorted by the key given in the argument."
+        enabled="true"
+        name="dictsort"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.dictsort"
+   >|dictsort:${key}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Takes a list of dictionaries and returns that list sorted in reverse order by the key given in the argument."
+        enabled="true"
+        name="dictsortreversed"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.dictsortreversed"
+   >|dictsortreversed:${key}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns True if the value is divisible by the argument."
+        enabled="true"
+        name="divisibleby"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.divisibleby"
+   >|divisibleby:${arg}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Escapes a string's HTML."
+        enabled="true"
+        name="escape"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.escape"
+   >|escape</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Escapes characters for use in JavaScript strings."
+        enabled="true"
+        name="escapejs"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.escapejs"
+   >|escapejs</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Formats the value like a 'human-readable' file size (i.e. '13 KB', '4.1 MB', '102 bytes', etc)."
+        enabled="true"
+        name="filesizeformat"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.filesizeformat"
+   >|filesizeformat</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns the first item in a list."
+        enabled="true"
+        name="first"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.first"
+   >|first</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Replaces ampersands with &amp; entities."
+        enabled="true"
+        name="fix_ampersands"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.fix_ampersands"
+   >|fix_ampersands</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Rounds a floating-point number to given decimal places."
+        enabled="true"
+        name="floatformat"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.floatformat"
+   >|floatformat:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Applies HTML escaping to a string."
+        enabled="true"
+        name="force_escape"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.force_escape"
+   >|force_escape</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns the requested n-th right-most digit."
+        enabled="true"
+        name="get_digit"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.get_digit"
+   >|get_digit:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts an IRI to a string that is suitable for including in a URL."
+        enabled="true"
+        name="iriencode"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.iriencode"
+   >|iriencode</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Joins a list with a string, like Python's str.join(list)"
+        enabled="true"
+        name="join"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.join"
+   >|join:${arg}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns the last item in a list."
+        enabled="true"
+        name="last"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.last"
+   >|last</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns the length of the value."
+        enabled="true"
+        name="length"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.length"
+   >|length</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns True if the value's length is the argument, or False otherwise."
+        enabled="true"
+        name="length_is"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.length_is"
+   >|length_is:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Replaces line breaks in plain text with appropriate HTML."
+        enabled="true"
+        name="linebreaks"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.linebreaks"
+   >|linebreaks</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts all newlines in a piece of plain text to HTML line breaks."
+        enabled="true"
+        name="linebreaksbr"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.linebreaksbr"
+   >|linebreaksbr</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Displays text with line numbers."
+        enabled="true"
+        name="linenumbers"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.linenumbers"
+   >|linenumbers</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Left-aligns the value in a field of a given width."
+        enabled="true"
+        name="ljust"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.ljust"
+   >|ljust:${width}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts a string into all lowercase."
+        enabled="true"
+        name="lower"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.lower"
+   >|lower</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns the value turned into a list."
+        enabled="true"
+        name="make_list"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.make_list"
+   >|make_list</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts a phone number (possibly containing letters) to its numerical equivalent."
+        enabled="true"
+        name="phone2numeric"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.phone2numeric"
+   >|phone2numeric</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns a plural suffix if the value is not 1. By default, this suffix is 's'."
+        enabled="true"
+        name="pluralize"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.pluralize"
+   >|pluralize:${arg}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="A wrapper around pprint.pprint() -- for debugging, really."
+        enabled="true"
+        name="pprint"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.pprint"
+   >|pprint</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns a random item from the given list."
+        enabled="true"
+        name="random"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.random"
+   >|random</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Removes a space-separated list of [X]HTML tags from the output."
+        enabled="true"
+        name="removetags"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.removetags"
+   >|removetags:${tags}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Right-aligns the value in a field of a given width."
+        enabled="true"
+        name="rjust"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.rjust"
+   >|rjust:${width}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Marks a string as not requiring further HTML escaping prior to output."
+        enabled="true"
+        name="safe"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.safe"
+   >|safe</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Applies the safe filter to each element of a sequence."
+        enabled="true"
+        name="safeseq"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.safeseq"
+   >|safeseq</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns a slice of the list."
+        enabled="true"
+        name="slice"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.slice"
+   >|slice:${value}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts to lowercase, removes non-word characters (alphanumerics and underscores) and converts spaces to hyphens. Also strips leading and trailing whitespace."
+        enabled="true"
+        name="slugify"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.slugify"
+   >|slugify</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Formats the variable according to the formatting specifier."
+        enabled="true"
+        name="stringformat"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.stringformat"
+   >|stringformat:${format}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Strips all [X]HTML tags."
+        enabled="true"
+        name="striptags"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.striptags"
+   >|striptags</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Formats a time according to the given format."
+        enabled="true"
+        name="time"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.time"
+   >|time:${format}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Formats a date as the time since that date (e.g., '4 days, 6 hours')."
+        enabled="true"
+        name="timesince"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.timesince"
+   >|timesince:${date}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Similar to timesince, except that it measures the time from now until the given date or datetime."
+        enabled="true"
+        name="timeuntil"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.timeuntil"
+   >|timeuntil:${date}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts a string into titlecase."
+        enabled="true"
+        name="title"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.title"
+   >|title</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Truncates a string if it is longer than the specified number of characters. Truncated strings will end with a translatable ellipsis sequence ('…')."
+        enabled="true"
+        name="truncatechars"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.truncatechars"
+   >|truncatechars:${number}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Truncates a string after a certain number of words."
+        enabled="true"
+        name="truncatewords"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.truncatewords"
+   >|truncatewords:${number}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Similar to truncatewords, except that it is aware of HTML tags."
+        enabled="true"
+        name="truncatewords_html"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.truncatewords_html"
+   >|truncatewords_html:${number}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Recursively takes a self-nested list and returns an HTML unordered list -- WITHOUT opening and closing ul tags."
+        enabled="true"
+        name="unordered_list"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.unordered_list"
+   >|unordered_list</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts a string into all uppercase."
+        enabled="true"
+        name="upper"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.upper"
+   >|upper</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Escapes a value for use in a URL."
+        enabled="true"
+        name="urlencode"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.urlencode"
+   >|urlencode</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts URLs in text into clickable links."
+        enabled="true"
+        name="urlize"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.urlize"
+   >|urlize</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Converts URLs into clickable links just like urlize, but truncates URLs longer than the given character limit."
+        enabled="true"
+        name="urlizetrunc"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.urlizetrunc"
+   >|urlizetrunc:${number}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Returns the number of words."
+        enabled="true"
+        name="wordcount"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.wordcount"
+   >|wordcount</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Wraps words at specified line length."
+        enabled="true"
+        name="wordwrap"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.wordwrap"
+   >|wordwrap:${number}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Maps values for true, false and (optionally) None, to the strings 'yes', 'no', 'maybe', or a custom mapping passed as a comma-separated list, and returns one of those strings according to the value."
+        enabled="true"
+        name="yesno"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.yesno"
+   >|yesno:${mapping}</template>
+
+</templates>
