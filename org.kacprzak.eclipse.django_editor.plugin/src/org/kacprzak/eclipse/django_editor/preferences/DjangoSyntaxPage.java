@@ -6,7 +6,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.kacprzak.eclipse.django_editor.DjangoActivator;
+import org.kacprzak.eclipse.django_editor.DjangoPlugin;
 
 /**
  * Old solution...
@@ -22,7 +22,7 @@ public class DjangoSyntaxPage extends FieldEditorPreferencePage implements IWork
 	public void init(IWorkbench workbench) {
 		setDescription("\nComing soon...");
 
-		IPreferenceStore store = DjangoActivator.getDefault().getPreferenceStore();
+		IPreferenceStore store = DjangoPlugin.getDefault().getPreferenceStore();
 		setPreferenceStore(store);
 	}
 

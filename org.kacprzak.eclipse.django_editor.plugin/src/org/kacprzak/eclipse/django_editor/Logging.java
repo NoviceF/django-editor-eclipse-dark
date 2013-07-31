@@ -10,7 +10,7 @@ import org.eclipse.core.runtime.Status;
  * @author Zbigniew Kacprzak
 */
 public class Logging {
-	private static DjangoActivator plugin = DjangoActivator.getDefault();
+	private static DjangoPlugin plugin = DjangoPlugin.getDefault();
 
 
 	public static void info(String message){

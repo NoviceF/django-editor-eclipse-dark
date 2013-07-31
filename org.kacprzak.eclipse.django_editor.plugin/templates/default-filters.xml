@@ -9,7 +9,17 @@
         enabled="true"
         name="add"
         id="org.kacprzak.eclipse.django_editor.templates.filters.add"
-   >|add:${value}</template>
+   >|add:"${value}"</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
+        deleted="false"
+        description="Adds slashes before quotes. Useful for escaping strings in CSV, for example."
+        enabled="true"
+        name="addslashes"
+        id="org.kacprzak.eclipse.django_editor.templates.filters.addslashes"
+   >|addslashes</template>
 
    <template
         autoinsert="true"
@@ -29,7 +39,7 @@
         enabled="true"
         name="center"
         id="org.kacprzak.eclipse.django_editor.templates.filters.center"
-   >|center:${value}</template>
+   >|center:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -39,7 +49,7 @@
         enabled="true"
         name="cut"
         id="org.kacprzak.eclipse.django_editor.templates.filters.cut"
-   >|cut:${value}</template>
+   >|cut:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -49,7 +59,7 @@
         enabled="true"
         name="date"
         id="org.kacprzak.eclipse.django_editor.templates.filters.date"
-   >|date:${format}</template>
+   >|date:"${format}"</template>
 
    <template
         autoinsert="true"
@@ -59,7 +69,7 @@
         enabled="true"
         name="default"
         id="org.kacprzak.eclipse.django_editor.templates.filters.default"
-   >|default:${value}</template>
+   >|default:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -69,7 +79,7 @@
         enabled="true"
         name="default_if_none"
         id="org.kacprzak.eclipse.django_editor.templates.filters.default_if_none"
-   >|default_if_none:${value}</template>
+   >|default_if_none:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -79,7 +89,7 @@
         enabled="true"
         name="dictsort"
         id="org.kacprzak.eclipse.django_editor.templates.filters.dictsort"
-   >|dictsort:${key}</template>
+   >|dictsort:"${key}"</template>
 
    <template
         autoinsert="true"
@@ -89,7 +99,7 @@
         enabled="true"
         name="dictsortreversed"
         id="org.kacprzak.eclipse.django_editor.templates.filters.dictsortreversed"
-   >|dictsortreversed:${key}</template>
+   >|dictsortreversed:"${key}"</template>
 
    <template
         autoinsert="true"
@@ -99,7 +109,7 @@
         enabled="true"
         name="divisibleby"
         id="org.kacprzak.eclipse.django_editor.templates.filters.divisibleby"
-   >|divisibleby:${arg}</template>
+   >|divisibleby:"${arg}"</template>
 
    <template
         autoinsert="true"
@@ -135,7 +145,7 @@
         autoinsert="true"
         context="org.kacprzak.eclipse.django_editor.templates.contextType.django_filter"
         deleted="false"
-        description="Returns the first item in a list"
+        description="Returns the first item in a list."
         enabled="true"
         name="first"
         id="org.kacprzak.eclipse.django_editor.templates.filters.first"
@@ -159,7 +169,7 @@
         enabled="true"
         name="floatformat"
         id="org.kacprzak.eclipse.django_editor.templates.filters.floatformat"
-   >|floatformat:${value}</template>
+   >|floatformat:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -179,7 +189,7 @@
         enabled="true"
         name="get_digit"
         id="org.kacprzak.eclipse.django_editor.templates.filters.get_digit"
-   >|get_digit:${value}</template>
+   >|get_digit:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -199,7 +209,7 @@
         enabled="true"
         name="join"
         id="org.kacprzak.eclipse.django_editor.templates.filters.join"
-   >|join:${arg}</template>
+   >|join:"${arg}"</template>
 
    <template
         autoinsert="true"
@@ -229,7 +239,7 @@
         enabled="true"
         name="length_is"
         id="org.kacprzak.eclipse.django_editor.templates.filters.length_is"
-   >|length_is:${value}</template>
+   >|length_is:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -269,7 +279,7 @@
         enabled="true"
         name="ljust"
         id="org.kacprzak.eclipse.django_editor.templates.filters.ljust"
-   >|ljust:${width}</template>
+   >|ljust:"${width}"</template>
 
    <template
         autoinsert="true"
@@ -309,7 +319,7 @@
         enabled="true"
         name="pluralize"
         id="org.kacprzak.eclipse.django_editor.templates.filters.pluralize"
-   >|pluralize:${arg}</template>
+   >|pluralize:"${arg}"</template>
 
    <template
         autoinsert="true"
@@ -339,7 +349,7 @@
         enabled="true"
         name="removetags"
         id="org.kacprzak.eclipse.django_editor.templates.filters.removetags"
-   >|removetags:${tags}</template>
+   >|removetags:"${tags}"</template>
 
    <template
         autoinsert="true"
@@ -349,7 +359,7 @@
         enabled="true"
         name="rjust"
         id="org.kacprzak.eclipse.django_editor.templates.filters.rjust"
-   >|rjust:${width}</template>
+   >|rjust:"${width}"</template>
 
    <template
         autoinsert="true"
@@ -379,7 +389,7 @@
         enabled="true"
         name="slice"
         id="org.kacprzak.eclipse.django_editor.templates.filters.slice"
-   >|slice:${value}</template>
+   >|slice:"${value}"</template>
 
    <template
         autoinsert="true"
@@ -399,7 +409,7 @@
         enabled="true"
         name="stringformat"
         id="org.kacprzak.eclipse.django_editor.templates.filters.stringformat"
-   >|stringformat:${format}</template>
+   >|stringformat:"${format}"</template>
 
    <template
         autoinsert="true"
@@ -419,7 +429,7 @@
         enabled="true"
         name="time"
         id="org.kacprzak.eclipse.django_editor.templates.filters.time"
-   >|time:${format}</template>
+   >|time:"${format}"</template>
 
    <template
         autoinsert="true"
@@ -429,7 +439,7 @@
         enabled="true"
         name="timesince"
         id="org.kacprzak.eclipse.django_editor.templates.filters.timesince"
-   >|timesince:${date}</template>
+   >|timesince:"${date}"</template>
 
    <template
         autoinsert="true"
@@ -439,7 +449,7 @@
         enabled="true"
         name="timeuntil"
         id="org.kacprzak.eclipse.django_editor.templates.filters.timeuntil"
-   >|timeuntil:${date}</template>
+   >|timeuntil:"${date}"</template>
 
    <template
         autoinsert="true"
@@ -459,7 +469,7 @@
         enabled="true"
         name="truncatechars"
         id="org.kacprzak.eclipse.django_editor.templates.filters.truncatechars"
-   >|truncatechars:${number}</template>
+   >|truncatechars:"${number}"</template>
 
    <template
         autoinsert="true"
@@ -469,7 +479,7 @@
         enabled="true"
         name="truncatewords"
         id="org.kacprzak.eclipse.django_editor.templates.filters.truncatewords"
-   >|truncatewords:${number}</template>
+   >|truncatewords:"${number}"</template>
 
    <template
         autoinsert="true"
@@ -479,7 +489,7 @@
         enabled="true"
         name="truncatewords_html"
         id="org.kacprzak.eclipse.django_editor.templates.filters.truncatewords_html"
-   >|truncatewords_html:${number}</template>
+   >|truncatewords_html:"${number}"</template>
 
    <template
         autoinsert="true"
@@ -529,7 +539,7 @@
         enabled="true"
         name="urlizetrunc"
         id="org.kacprzak.eclipse.django_editor.templates.filters.urlizetrunc"
-   >|urlizetrunc:${number}</template>
+   >|urlizetrunc:"${number}"</template>
 
    <template
         autoinsert="true"
@@ -549,7 +559,7 @@
         enabled="true"
         name="wordwrap"
         id="org.kacprzak.eclipse.django_editor.templates.filters.wordwrap"
-   >|wordwrap:${number}</template>
+   >|wordwrap:"${number}"</template>
 
    <template
         autoinsert="true"
@@ -559,6 +569,6 @@
         enabled="true"
         name="yesno"
         id="org.kacprzak.eclipse.django_editor.templates.filters.yesno"
-   >|yesno:${mapping}</template>
+   >|yesno:"${mapping}"</template>
 
 </templates>

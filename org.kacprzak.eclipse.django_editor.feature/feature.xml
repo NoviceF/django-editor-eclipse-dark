@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.kacprzak.eclipse.django.feature"
-      label="Django Templates Editor Feature"
-      version="1.1.0.qualifier"
+      label="Django Templates Editor"
+      version="1.2.0.qualifier"
       provider-name="Zbigniew Kacprzak">
 
    <description url="http://eclipse.kacprzak.org">

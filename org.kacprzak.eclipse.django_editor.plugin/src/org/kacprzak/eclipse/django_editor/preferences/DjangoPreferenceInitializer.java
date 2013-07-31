@@ -7,7 +7,7 @@ import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.swt.SWT;
-import org.kacprzak.eclipse.django_editor.DjangoActivator;
+import org.kacprzak.eclipse.django_editor.DjangoPlugin;
 import org.kacprzak.eclipse.django_editor.IDjangoColorConstants;
 
 /**
@@ -17,7 +17,7 @@ public class DjangoPreferenceInitializer extends AbstractPreferenceInitializer
 {
 	@Override
 	public void initializeDefaultPreferences() {
-		IPreferenceStore store = DjangoActivator.getDefault().getPreferenceStore();
+		IPreferenceStore store = DjangoPlugin.getDefault().getPreferenceStore();
 
 		setDefaults(store);
 	}

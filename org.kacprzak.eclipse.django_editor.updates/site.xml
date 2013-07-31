@@ -9,5 +9,8 @@
    <feature url="features/org.kacprzak.eclipse.django.feature_1.1.0.201211221652.jar" id="org.kacprzak.eclipse.django.feature" version="1.1.0.201211221652">
       <category name="org.kacprzak.eclipse.django.editor"/>
    </feature>
+   <feature url="features/org.kacprzak.eclipse.django.feature_1.2.0.201308010030.jar" id="org.kacprzak.eclipse.django.feature" version="1.2.0.201308010030">
+      <category name="org.kacprzak.eclipse.django.editor"/>
+   </feature>
    <category-def name="org.kacprzak.eclipse.django.editor" label="Django Templates Editor"/>
 </site>

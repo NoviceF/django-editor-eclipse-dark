@@ -3,6 +3,7 @@ package org.kacprzak.eclipse.django_editor.editors.completion;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.contentassist.CompletionProposal;
 import org.eclipse.jface.text.contentassist.ContextInformation;
@@ -10,8 +11,10 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
-import org.kacprzak.eclipse.django_editor.DjangoActivator;
+import org.eclipse.swt.graphics.Image;
 import org.kacprzak.eclipse.django_editor.DjangoEditorResources;
+import org.kacprzak.eclipse.django_editor.DjangoPlugin;
+import org.kacprzak.eclipse.django_editor.IDjangoImages;
 import org.kacprzak.eclipse.django_editor.IDjangoPartitions;
 import org.kacprzak.eclipse.django_editor.editors.dj.IDjangoSyntax;
 import org.kacprzak.eclipse.django_editor.editors.dj.WordPartDetector;
@@ -34,7 +37,9 @@ public class DjangoCompletionProcessor implements IContentAssistProcessor {
 
 		WordPartDetector wordPart = new WordPartDetector(viewer, documentOffset);
 
-		if (this.partition.equals(IDjangoPartitions.DJANGO_TAG)) {
+		if (this.partition.equals(IDjangoPartitions.DJANGO_TAG) ||
+			partition.equals(IDjangoPartitions.DJANGO_DEFAULT)) 
+		{
 			// iterate over tags
 			for (String key: IDjangoSyntax.TAGS) {
 				if (key.toLowerCase().startsWith(wordPart.getString().toLowerCase()))
@@ -57,8 +62,8 @@ public class DjangoCompletionProcessor implements IContentAssistProcessor {
 	}
 	private CompletionProposal createCompletionProposal(String keyWord, WordPartDetector wordPart, String wordType)
 	{
-		IContextInformation info =
-			new ContextInformation(keyWord, getContentInfoString(keyWord));
+		String aInfoStr = getContentInfoString(keyWord);
+		IContextInformation info = new ContextInformation(keyWord, aInfoStr);
 
 		// TODO: get descriptions from Django web site
 		String descr = "Django template tag";
@@ -67,12 +72,18 @@ public class DjangoCompletionProcessor implements IContentAssistProcessor {
 		else if (wordType.equals("FORLOOP"))
 			descr = "Django loop variable";
 		String dispStr = String.format("%s   - %s", keyWord, descr);
+		
+		ImageRegistry registry = DjangoPlugin.getDefault().getImageRegistry();
+		Image image = registry.get(IDjangoImages.TAG_IMAGE);
+		if (partition.equals(IDjangoPartitions.DJANGO_VARIABLE))
+			image = registry.get(IDjangoImages.FILTER_IMAGE);
+		
 		return
 			new CompletionProposal(keyWord, 	//replacementString
 					wordPart.getOffset(),		//replacementOffset the offset of the text to be replaced
 					wordPart.getString().length(), 	//replacementLength the length of the text to be replaced
 					keyWord.length(), 			//cursorPosition the position of the cursor following the insert relative to replacementOffset
-					null,						//image to display
+					image,						//image to display
 					dispStr, 					//displayString the string to be displayed for the proposal
 					info,						//contntentInformation the context information associated with this proposal
 					"Additional information..."//getContentInfoString(keyWord)
@@ -87,7 +98,7 @@ public class DjangoCompletionProcessor implements IContentAssistProcessor {
 		String resourceString;
 		String resourceKey = "ContextString." + keyWord;
 		resourceString = DjangoEditorResources.getString(resourceKey);
-		if (resourceString == keyWord) {
+		if (resourceString.equals(keyWord)) {
 			resourceString = "No Context Info String";
 		}
 		return resourceString;
@@ -101,7 +112,7 @@ public class DjangoCompletionProcessor implements IContentAssistProcessor {
 
 	@Override
 	public char[] getCompletionProposalAutoActivationCharacters() {
-		return null;//new char[]{ '{', '%', '|'};
+		return new char[]{ '{', '%', '|'};
 	}
 
 	@Override

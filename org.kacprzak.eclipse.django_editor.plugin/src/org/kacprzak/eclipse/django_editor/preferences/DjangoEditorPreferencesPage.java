@@ -23,7 +23,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.kacprzak.eclipse.django_editor.DjangoActivator;
+import org.kacprzak.eclipse.django_editor.DjangoPlugin;
 
 /**
  * @author Zbigniew Kacprzak
@@ -43,7 +43,7 @@ public class DjangoEditorPreferencesPage extends PreferencePage implements IWork
 
 	public DjangoEditorPreferencesPage() {
         setDescription("Django Editor syntax highlighting settings.");
-        this.mStore = DjangoActivator.getDefault().getPreferenceStore();
+        this.mStore = DjangoPlugin.getDefault().getPreferenceStore();
         setPreferenceStore(this.mStore);
 
         mLocalStore = new DialogPreferencesStore();

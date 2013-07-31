@@ -6,7 +6,7 @@ import org.eclipse.jface.text.templates.ContextTypeRegistry;
 import org.eclipse.jface.text.templates.persistence.TemplateStore;
 import org.eclipse.ui.editors.text.templates.ContributionContextTypeRegistry;
 import org.eclipse.ui.editors.text.templates.ContributionTemplateStore;
-import org.kacprzak.eclipse.django_editor.DjangoActivator;
+import org.kacprzak.eclipse.django_editor.DjangoPlugin;
 
 /**
  * Predefined templates manager
@@ -24,7 +24,7 @@ public class TemplateManager {
         if (templatesStore == null) {
         	templatesStore = new ContributionTemplateStore(
         							getDjangoContextTypeRegistry(),
-        							DjangoActivator.getDefault().getPreferenceStore(),
+        							DjangoPlugin.getDefault().getPreferenceStore(),
         							DJANGO_CUSTOM_TEMPLATES_KEY
         						);
             try {
@@ -48,7 +48,7 @@ public class TemplateManager {
 
 	@SuppressWarnings("deprecation")
 	public static void savePluginPreferences(){
-		DjangoActivator.getDefault().savePluginPreferences();
+		DjangoPlugin.getDefault().savePluginPreferences();
 	}
 
 }

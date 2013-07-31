@@ -36,8 +36,8 @@ public class DjangoPartitionScanner extends RuleBasedPartitionScanner {
 
 		rules.add(new MultiLineRule("{% comment %}", "{% endcomment %}", djComment));
 		rules.add(new SingleLineRule("{#", "#}", djComment));
-		rules.add(new SingleLineRule("{%", "%}", djTag));
-		rules.add(new SingleLineRule("{{", "}}", djVariable));
+		rules.add(new MultiLineRule("{%", "%}", djTag));
+		rules.add(new MultiLineRule("{{", "}}", djVariable));
 
 		rules.add(new MultiLineRule("<!--", "-->", htmlComment));
 		rules.add(new MultiLineRule("<%--", "--%>", htmlComment));

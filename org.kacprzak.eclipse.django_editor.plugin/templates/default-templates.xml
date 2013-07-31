@@ -5,13 +5,21 @@
         autoinsert="true"
         context="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
         deleted="false"
+        description="Django variable"
+        enabled="true"
+        name="{{ variable }}"
+        id="org.kacprzak.eclipse.django_editor.templates.tags.{{ variable }}"
+   >{{ ${variable} }}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
+        deleted="false"
         description="Auto-escaping inside the block"
         enabled="true"
         name="autoescape"
         id="org.kacprzak.eclipse.django_editor.templates.tags.autoescape"
-   >{% autoescape ${onoff} %}
-{% endautoescape %}
-</template>
+   >{% autoescape ${onoff} %}{% endautoescape %}</template>
 
    <template
         autoinsert="true"
@@ -21,9 +29,7 @@
         enabled="true"
         name="block"
         id="org.kacprzak.eclipse.django_editor.templates.tags.block"
-   >{% block ${name} %}
-{% endblock %}
-</template>
+   >{% block ${name} %}{% endblock %}</template>
 
    <template
         autoinsert="true"
@@ -33,10 +39,7 @@
         enabled="true"
         name="comment"
         id="org.kacprzak.eclipse.django_editor.templates.tags.comment"
-   >{% comment %}
-  ${cursor}
-{% endcomment %}
-</template>
+   >{% comment %}  ${cursor}{% endcomment %}</template>
 
    <template
         autoinsert="true"
@@ -46,8 +49,7 @@
         enabled="true"
         name="csrf_token"
         id="org.kacprzak.eclipse.django_editor.templates.tags.csrf_token"
-   >{% csrf_token %}
-</template>
+   >{% csrf_token %}</template>
 
    <template
         autoinsert="true"
@@ -57,8 +59,7 @@
         enabled="true"
         name="cycle"
         id="org.kacprzak.eclipse.django_editor.templates.tags.cycle"
-   >{% cycle ${row1} ${row2} %}
-</template>
+   >{% cycle ${row1} ${row2} %}</template>
 
    <template
         autoinsert="true"
@@ -68,8 +69,7 @@
         enabled="true"
         name="debug"
         id="org.kacprzak.eclipse.django_editor.templates.tags.debug"
-   >{% debug %}
-</template>
+   >{% debug %}</template>
 
    <template
         autoinsert="true"
@@ -79,8 +79,7 @@
         enabled="true"
         name="extends"
         id="org.kacprzak.eclipse.django_editor.templates.tags.extends"
-   >{% extends ${file_name} %}
-</template>
+   >{% extends ${file_name} %}</template>
 
    <template
         autoinsert="true"
@@ -90,9 +89,7 @@
         enabled="true"
         name="filter"
         id="org.kacprzak.eclipse.django_editor.templates.tags.filter"
-   >{% filter ${name} %}
-{% endfilter %}
-</template>
+   >{% filter ${name} %}{% endfilter %}</template>
 
    <template
         autoinsert="true"
@@ -102,8 +99,7 @@
         enabled="true"
         name="firstof"
         id="org.kacprzak.eclipse.django_editor.templates.tags.firstof"
-   >{% firstof ${var1} ${var2} ${var3} %}
-</template>
+   >{% firstof ${var1} ${var2} ${var3} %}</template>
 
    <template
         autoinsert="true"
@@ -113,9 +109,7 @@
         enabled="true"
         name="for"
         id="org.kacprzak.eclipse.django_editor.templates.tags.for"
-   >{% for ${el} in ${array} %}
-{% endfor %}
-</template>
+   >{% for ${el} in ${array} %}{% endfor %}</template>
 
    <template
         autoinsert="true"
@@ -125,10 +119,7 @@
         enabled="true"
         name="forempty"
         id="org.kacprzak.eclipse.django_editor.templates.tags.forempty"
-   >{% for ${el} in ${array} %}
-{% empty %}
-{% endfor %}
-</template>
+   >{% for ${el} in ${array} %}{% empty %}{% endfor %}</template>
 
    <template
         autoinsert="true"
@@ -138,9 +129,7 @@
         enabled="true"
         name="if"
         id="org.kacprzak.eclipse.django_editor.templates.tags.if"
-   >{% if ${condition} %}
-{% endif %}
-</template>
+   >{% if ${condition} %}{% endif %}</template>
 
    <template
         autoinsert="true"
@@ -150,10 +139,7 @@
         enabled="true"
         name="ifelse"
         id="org.kacprzak.eclipse.django_editor.templates.tags.ifelse"
-   >{% if ${condition} %}
-{% else %}
-{% endif %}
-</template>
+   >{% if ${condition} %}{% else %}{% endif %}</template>
 
    <template
         autoinsert="true"
@@ -163,9 +149,7 @@
         enabled="true"
         name="ifchanged"
         id="org.kacprzak.eclipse.django_editor.templates.tags.ifchanged"
-   >{% ifchanged ${what} %}
-{% endifchanged %}
-</template>
+   >{% ifchanged ${what} %}{% endifchanged %}</template>
 
    <template
         autoinsert="true"
@@ -175,10 +159,7 @@
         enabled="true"
         name="ifchangedelse"
         id="org.kacprzak.eclipse.django_editor.templates.tags.ifchangedelse"
-   >{% ifchanged ${what} %}
-{% else %}
-{% endifchanged %}
-</template>
+   >{% ifchanged ${what} %}{% else %}{% endifchanged %}</template>
 
    <template
         autoinsert="true"
@@ -188,9 +169,7 @@
         enabled="true"
         name="ifequal"
         id="org.kacprzak.eclipse.django_editor.templates.tags.ifequal"
-   >{% ifequal ${par1} ${par2} %}
-{% endifequal %}
-</template>
+   >{% ifequal ${par1} ${par2} %}{% endifequal %}</template>
 
    <template
         autoinsert="true"
@@ -200,9 +179,7 @@
         enabled="true"
         name="ifnotequal"
         id="org.kacprzak.eclipse.django_editor.templates.tags.ifnotequal"
-   >{% ifnotequal ${par1} ${par2} %}
-{% endifnotequal %}
-</template>
+   >{% ifnotequal ${par1} ${par2} %}{% endifnotequal %}</template>
 
    <template
         autoinsert="true"
@@ -212,8 +189,7 @@
         enabled="true"
         name="include"
         id="org.kacprzak.eclipse.django_editor.templates.tags.include"
-   >{% include ${file_name} %}
-</template>
+   >{% include ${file_name} %}</template>
 
    <template
         autoinsert="true"
@@ -223,8 +199,7 @@
         enabled="true"
         name="load"
         id="org.kacprzak.eclipse.django_editor.templates.tags.load"
-   >{% load ${template} %}
-</template>
+   >{% load ${template} %}</template>
 
    <template
         autoinsert="true"
@@ -234,8 +209,7 @@
         enabled="true"
         name="load_i18n"
         id="org.kacprzak.eclipse.django_editor.templates.tags.load_i18n"
-   >{% load i18n %}
-</template>
+   >{% load i18n %}</template>
 
    <template
         autoinsert="true"
@@ -245,8 +219,7 @@
         enabled="true"
         name="load_l10n"
         id="org.kacprzak.eclipse.django_editor.templates.tags.load_l10n"
-   >{% load l10n %}
-</template>
+   >{% load l10n %}</template>
 
    <template
         autoinsert="true"
@@ -256,8 +229,7 @@
         enabled="true"
         name="lorem"
         id="org.kacprzak.eclipse.django_editor.templates.tags.lorem"
-   >{% lorem ${count} ${method} ${random} %}
-</template>
+   >{% lorem ${count} ${method} ${random} %}</template>
 
    <template
         autoinsert="true"
@@ -267,8 +239,7 @@
         enabled="true"
         name="now"
         id="org.kacprzak.eclipse.django_editor.templates.tags.now"
-   >{% now ${format} %}
-</template>
+   >{% now ${format} %}</template>
 
    <template
         autoinsert="true"
@@ -278,8 +249,7 @@
         enabled="true"
         name="regroup"
         id="org.kacprzak.eclipse.django_editor.templates.tags.regroup"
-   >{% regroup ${x} by ${y} as ${list} %}
-</template>
+   >{% regroup ${x} by ${y} as ${list} %}</template>
 
    <template
         autoinsert="true"
@@ -289,10 +259,7 @@
         enabled="true"
         name="spaceless"
         id="org.kacprzak.eclipse.django_editor.templates.tags.spaceless"
-   >{% spaceless %}
-  ${cursor}
-{% endspaceless %}
-</template>
+   >{% spaceless %}  ${cursor}{% endspaceless %}</template>
 
    <template
         autoinsert="true"
@@ -302,8 +269,7 @@
         enabled="true"
         name="ssi"
         id="org.kacprzak.eclipse.django_editor.templates.tags.ssi"
-   >{% ssi ${file_name} %}
-</template>
+   >{% ssi ${file_name} %}</template>
 
    <template
         autoinsert="true"
@@ -313,8 +279,7 @@
         enabled="true"
         name="templatetag"
         id="org.kacprzak.eclipse.django_editor.templates.tags.templatetag"
-   >{% templatetag ${arg} %}
-</template>
+   >{% templatetag ${arg} %}</template>
 
    <template
         autoinsert="true"
@@ -324,8 +289,17 @@
         enabled="true"
         name="url"
         id="org.kacprzak.eclipse.django_editor.templates.tags.url"
-   >{% url ${args} %}
-</template>
+   >{% url ${args} %}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
+        deleted="false"
+        description="Stops the template engine from rendering the contents of this block tag"
+        enabled="true"
+        name="verbatim"
+        id="org.kacprzak.eclipse.django_editor.templates.tags.verbatim"
+   >{% verbatim ${args} %}{% endverbatim %}</template>
 
    <template
         autoinsert="true"
@@ -335,8 +309,7 @@
         enabled="true"
         name="widthratio"
         id="org.kacprzak.eclipse.django_editor.templates.tags.widthratio"
-   >{% widthratio ${this_value} ${max_value} 100 %}
-</template>
+   >{% widthratio ${this_value} ${max_value} 100 %}</template>
 
    <template
         autoinsert="true"
@@ -346,8 +319,6 @@
         enabled="true"
         name="with"
         id="org.kacprzak.eclipse.django_editor.templates.tags.with"
-   >{% with ${x} as ${y} %}
-{% endwith %}
-</template>
+   >{% with ${x} as ${y} %}{% endwith %}</template>
 
 </templates>

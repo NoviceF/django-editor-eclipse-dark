@@ -1,5 +1,6 @@
 package org.kacprzak.eclipse.django_editor.editors;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
@@ -8,15 +9,17 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.texteditor.DefaultRangeIndicator;
-import org.kacprzak.eclipse.django_editor.DjangoActivator;
-import org.kacprzak.eclipse.django_editor.Logging;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+import org.kacprzak.eclipse.django_editor.DjangoPlugin;
+import org.kacprzak.eclipse.django_editor.editors.outline.DjangoContentOutlinePage;
 
 /**
  * @author Zbigniew Kacprzak
 */
 public class DjangoEditor extends TextEditor implements IPropertyChangeListener {
 
-	//IDjangoOutlinePage outlinePage;
+	/** The outline page */
+	private DjangoContentOutlinePage outlinePage;
 
 	private ColorProvider colorProvider;
 	private DjangoSourceViewerConfiguration viewerConfiguration;
@@ -24,7 +27,7 @@ public class DjangoEditor extends TextEditor implements IPropertyChangeListener 
 
 	public DjangoEditor() {
 		super();
-		colorProvider = DjangoActivator.getDefault().getColorProvider();
+		colorProvider = DjangoPlugin.getDefault().getColorProvider();
 		viewerConfiguration = new DjangoSourceViewerConfiguration(colorProvider);
 		documentProvider = new DjangoDocumentProvider();
 
@@ -32,20 +35,20 @@ public class DjangoEditor extends TextEditor implements IPropertyChangeListener 
 		setDocumentProvider(documentProvider);
 
 		setRangeIndicator(new DefaultRangeIndicator());
-
-		//outlinePage = new DjangoOutlinePage(this);
 	}
 
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException
 	{
-		DjangoActivator.getDefault().getPreferenceStore().addPropertyChangeListener(this);
+		DjangoPlugin.getDefault().getPreferenceStore().addPropertyChangeListener(this);
 		super.init(site, input);
 	}
 
 	@Override
 	public void dispose() {
-		DjangoActivator.getDefault().getPreferenceStore().removePropertyChangeListener(this);
+		DjangoPlugin.getDefault().getPreferenceStore().removePropertyChangeListener(this);
+		if (outlinePage != null)
+			outlinePage.setInput(null);
 		super.dispose();
 	}
 
@@ -60,6 +63,18 @@ public class DjangoEditor extends TextEditor implements IPropertyChangeListener 
 		}
 	}
 
+	public void doSetInput(IEditorInput input) throws CoreException {
+		super.doSetInput(input);
+		if (outlinePage != null)
+			outlinePage.setInput(input);
+	}
+
+	@Override
+	public void doRevertToSaved() {
+		super.doRevertToSaved();
+		update();
+	}
+	
 	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
 		super.doSave(progressMonitor);
@@ -72,7 +87,28 @@ public class DjangoEditor extends TextEditor implements IPropertyChangeListener 
 		update();
 	}
 
+	@Override
+	protected void editorSaved() {
+		super.editorSaved();
+		if (outlinePage != null)
+			outlinePage.update();	
+	}
+
 	protected void update() {
-		//outlinePage.update();
+		if (outlinePage != null)
+			outlinePage.update();
+	}
+
+	@Override
+	public Object getAdapter(Class required) {
+		if (IContentOutlinePage.class.equals(required)) {
+			if (outlinePage == null) {
+				//outlinePage= new DjangoContentOutlinePage(getDocumentProvider(), this);
+				//if (getEditorInput() != null)
+				//	outlinePage.setInput(getEditorInput());
+			}
+			return outlinePage;
+		}
+		return super.getAdapter(required);
 	}
 }

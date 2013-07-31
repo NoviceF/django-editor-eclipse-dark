@@ -63,7 +63,7 @@ public class HtmlTagRule implements IRule {
             	return defaultToken;
             }
             
-        	boolean eod = (int) ch == 65535;
+        	//boolean eod = (int) ch == 65535;
         	boolean eof = ((int) ch) == ICharacterScanner.EOF;
             if (ch == '"' || ch == '\'' || instr != '0') {
             	if (instr == '0')
@@ -73,7 +73,8 @@ public class HtmlTagRule implements IRule {
             	attr = false;
                 return stringToken;
 
-            } else if (!eod && !attr && (wordDetector.isWordPart(ch) || ch == '}') ) {
+//            } else if (!eod && !attr && (wordDetector.isWordPart(ch) || ch == '}') ) {
+            } else if (!attr && (wordDetector.isWordPart(ch) || ch == '}') ) {
                 do {
                     ch = (char) scanner.read();
                 } while ( !eof && wordDetector.isWordPart(ch));
@@ -81,10 +82,6 @@ public class HtmlTagRule implements IRule {
                 attr = true;
                 instr = '0';
                 return attributeToken;
-
-//            } else if (ch == '=') {
-//                attr = false;
-//                instr = '0';
             }
 
         }

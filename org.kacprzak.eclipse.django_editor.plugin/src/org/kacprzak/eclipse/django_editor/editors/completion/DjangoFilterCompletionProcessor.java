@@ -5,12 +5,11 @@ import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IRegion;
 import org.eclipse.jface.text.ITextViewer;
-import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.templates.Template;
 import org.eclipse.jface.text.templates.TemplateCompletionProcessor;
 import org.eclipse.jface.text.templates.TemplateContextType;
 import org.eclipse.swt.graphics.Image;
-import org.kacprzak.eclipse.django_editor.DjangoActivator;
+import org.kacprzak.eclipse.django_editor.DjangoPlugin;
 import org.kacprzak.eclipse.django_editor.IDjangoImages;
 import org.kacprzak.eclipse.django_editor.templates.DjangoContextType;
 import org.kacprzak.eclipse.django_editor.templates.TemplateManager;
@@ -19,8 +18,13 @@ import org.kacprzak.eclipse.django_editor.templates.TemplateManager;
  * Django filters completion processor
  * @author Zbigniew Kacprzak
 */
-public class DjangoFilterCompletionProcessor extends TemplateCompletionProcessor implements IContentAssistProcessor
+public class DjangoFilterCompletionProcessor extends TemplateCompletionProcessor
 {
+
+	@Override
+	public char[] getCompletionProposalAutoActivationCharacters() {
+		return new char[] { '|' };
+	}
 
 	@Override
 	protected TemplateContextType getContextType(ITextViewer viewer, IRegion region) {
@@ -30,7 +34,7 @@ public class DjangoFilterCompletionProcessor extends TemplateCompletionProcessor
 
 	@Override
 	protected Image getImage(Template template) {
-		ImageRegistry registry = DjangoActivator.getDefault().getImageRegistry();
+		ImageRegistry registry = DjangoPlugin.getDefault().getImageRegistry();
 		return registry.get(IDjangoImages.FILTER_IMAGE);
 	}
 
@@ -77,10 +81,6 @@ public class DjangoFilterCompletionProcessor extends TemplateCompletionProcessor
 			return ""; //$NON-NLS-1$
 		}
 		
-	}
-
-	public char[] getCompletionProposalAutoActivationCharacters() {
-		return new char[] { '|' };
 	}
 
 }
