@@ -1,0 +1,3 @@
+syntax: glob
+org.kacprzak.eclipse.django_editor.updates/features/*.jar
+*.class
