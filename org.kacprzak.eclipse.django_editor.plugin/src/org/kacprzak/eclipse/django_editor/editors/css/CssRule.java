@@ -68,10 +68,6 @@ public class CssRule implements IPredicateRule {
 		return evaluate(scanner, false);
 	}
 	public IToken evaluate(ICharacterScanner scanner, boolean resume) {
-		return doEvaluate(scanner, resume);
-	}
-
-	private IToken doEvaluate(ICharacterScanner scanner, boolean resume) {
 		if (resume) {
 			IToken token = getToken(scanner);
 			if (token!=null) return token;

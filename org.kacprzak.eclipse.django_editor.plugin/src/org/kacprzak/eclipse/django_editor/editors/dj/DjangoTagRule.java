@@ -24,9 +24,13 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
     protected IToken 				usertagToken;
     protected IToken 				keywordToken;
     protected IToken 				defaultToken;
+    protected IToken				userFilterToken;
+    protected IToken				filterToken;
 
-    protected Map<String, IToken> 	tagNames = new HashMap<String, IToken>();
+    protected Map<String, IToken> 	operators = new HashMap<String, IToken>();
     protected Map<String, IToken> 	keywords = new HashMap<String, IToken>();
+    protected Map<String, IToken> 	filters = new HashMap<String, IToken>();
+    
     private StringBuffer 			strBuffer = new StringBuffer();
 
 	public DjangoTagRule(ColorProvider provider) {
@@ -37,6 +41,8 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
         usertagToken   = colorProvider.getToken(IDjangoPrefs.DJUSRTAG_COLOR, IDjangoPrefs.DJUSRTAG_STYLE);
         keywordToken   = colorProvider.getToken(IDjangoPrefs.DJKEYWORD_COLOR, IDjangoPrefs.DJKEYWORD_STYLE);
         defaultToken   = colorProvider.getToken(IDjangoPrefs.DEFAULT_FG_COLOR, IDjangoPrefs.DEFAULT_FG_STYLE);
+        filterToken		= colorProvider.getToken(IDjangoPrefs.DJFILTER_COLOR, IDjangoPrefs.DJFILTER_STYLE);
+        userFilterToken = colorProvider.getToken(IDjangoPrefs.DJUSRFILTER_COLOR, IDjangoPrefs.DJUSRFILTER_STYLE);
 
         setKeywords();
 	}
@@ -46,7 +52,10 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
 			keywords.put(word, keywordToken);
 		}
 		for(String word: IDjangoSyntax.PREDICATES){
-			tagNames.put(word, keywordToken);
+			operators.put(word, keywordToken);
+		}
+		for(String word: IDjangoSyntax.FILTERS) {
+			filters.put(word, filterToken);
 		}
     }
 
@@ -56,6 +65,7 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
 
     private boolean insideDjangoTag = false;
     private boolean prevWasTagDelimiter = false;
+    private boolean prevWasFilterDelimiter = false;
 
 	@Override
 	public IToken evaluate(ICharacterScanner scanner) {
@@ -72,6 +82,9 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
             }
             scanner.unread();
             
+        } else if (insideDjangoTag && ch == '|') {
+        	prevWasFilterDelimiter = true;
+        
         } else if (insideDjangoTag && wordDetector.isWordStart(ch)) {
         	strBuffer = new StringBuffer();
             do {
@@ -81,18 +94,27 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
             scanner.unread();
 
             String str = strBuffer.toString();
+
+            if (prevWasFilterDelimiter) {
+	            IToken token= (IToken) filters.get(str);
+	            if (token != null)
+	                return token;
+	
+	            prevWasFilterDelimiter = false;
+	            return userFilterToken;
+            }
+            
             if (prevWasTagDelimiter) {
             	// expected tag's name here: either built-in or custom
             	prevWasTagDelimiter = false;
 	            IToken token= (IToken) keywords.get(str);
-	            if (token != null) {
+	            if (token != null)
 	                return token;
-	            }
             	return usertagToken;
             }
             
             // some well known modifiers (like 'and' 'or' )
-            IToken token= (IToken) tagNames.get(str);
+            IToken token= (IToken) operators.get(str);
             if (token != null) {
                 return token;
             }
@@ -100,6 +122,8 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
             prevWasTagDelimiter = false;
             return defaultToken;
 
+        } else {
+        	prevWasFilterDelimiter = false;
         } 
 
         scanner.unread();

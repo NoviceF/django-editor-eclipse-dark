@@ -63,8 +63,13 @@ public class HtmlTagRule implements IRule {
             	return defaultToken;
             }
             
-        	//boolean eod = (int) ch == 65535;
+        	boolean eod = (int) ch == 65535; // 0xFFFF - on 64bit Linux; need to catch otherwise Eclipse hangs
         	boolean eof = ((int) ch) == ICharacterScanner.EOF;
+        	if (eod || eof) {
+                scanner.unread();
+                return Token.UNDEFINED;
+            }
+
             if (ch == '"' || ch == '\'' || instr != '0') {
             	if (instr == '0')
             		instr = ch;
@@ -73,11 +78,10 @@ public class HtmlTagRule implements IRule {
             	attr = false;
                 return stringToken;
 
-//            } else if (!eod && !attr && (wordDetector.isWordPart(ch) || ch == '}') ) {
             } else if (!attr && (wordDetector.isWordPart(ch) || ch == '}') ) {
                 do {
                     ch = (char) scanner.read();
-                } while ( !eof && wordDetector.isWordPart(ch));
+                } while ( wordDetector.isWordPart(ch));
                 scanner.unread();
                 attr = true;
                 instr = '0';
