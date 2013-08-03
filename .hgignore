@@ -1,3 +1,9 @@
 syntax: glob
 org.kacprzak.eclipse.django_editor.updates/features/*.jar
+org.kacprzak.eclipse.django_editor.updates/plugins/*.jar
 *.class
+
+syntax: regexp
+\.jar$
+syntax: regexp
+^org\.kacprzak\.eclipse\.django_editor\.plugin/bin$

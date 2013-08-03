@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>django-editor</name>
+	<comment></comment>
+	<projects>
+		<project>org.kacprzak.eclipse.django_editor.feature</project>
+		<project>org.kacprzak.eclipse.django_editor.plugin</project>
+		<project>org.kacprzak.eclipse.django_editor.updates</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>
