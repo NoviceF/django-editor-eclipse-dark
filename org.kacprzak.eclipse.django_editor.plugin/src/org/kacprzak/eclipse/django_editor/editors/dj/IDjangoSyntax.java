@@ -19,15 +19,6 @@ public interface IDjangoSyntax {
 		, "debug"
 		, "else"
 		, "empty"
-		, "endautoescape"
-		, "endblock"
-		, "endcomment"
-		, "endfilter"
-		, "endfor"
-		, "endif"
-		, "endifchanged"
-		, "endifequal"
-		, "endifnotequal"
 		, "extends"
 		, "filter"
 		, "firstof"
@@ -49,6 +40,19 @@ public interface IDjangoSyntax {
 		, "with"
 	};
 
+	public static final String[] END_TAGS = {
+		"endautoescape"
+		, "endblock"
+		, "endcomment"
+		, "endfilter"
+		, "endfor"
+		, "endif"
+		, "endifchanged"
+		, "endifequal"
+		, "endifnotequal"
+		, "endspaceless"
+	};
+	
 	public static final String[] FILTERS = {
 		  "add"
 		, "addslashes"

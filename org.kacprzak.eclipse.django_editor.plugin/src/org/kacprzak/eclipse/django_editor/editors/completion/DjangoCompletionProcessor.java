@@ -45,6 +45,10 @@ public class DjangoCompletionProcessor implements IContentAssistProcessor {
 				if (key.toLowerCase().startsWith(wordPart.getString().toLowerCase()))
 					proposalsList.add(createCompletionProposal(key, wordPart, "TAG"));
 			}
+			for (String key: IDjangoSyntax.END_TAGS) {
+				if (key.toLowerCase().startsWith(wordPart.getString().toLowerCase()))
+					proposalsList.add(createCompletionProposal(key, wordPart, "TAG"));
+			}
 		}
 		if (this.partition.equals(IDjangoPartitions.DJANGO_VARIABLE)) {
 			// iterate over filters

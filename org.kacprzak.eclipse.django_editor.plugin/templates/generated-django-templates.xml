@@ -285,6 +285,16 @@
         autoinsert="true"
         context="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
         deleted="false"
+        description="Translates either a constant string or variable content"
+        enabled="true"
+        name="trans"
+        id="org.kacprzak.eclipse.django_editor.templates.tags.trans"
+   >{% trans ${arg} %}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
+        deleted="false"
         description="Returns an absolute URL (i.e., a URL without the domain name) matching a given view function and optional parameters"
         enabled="true"
         name="url"

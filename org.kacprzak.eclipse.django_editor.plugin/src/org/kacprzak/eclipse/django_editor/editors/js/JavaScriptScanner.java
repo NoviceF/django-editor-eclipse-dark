@@ -9,14 +9,13 @@ import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.MultiLineRule;
 import org.eclipse.jface.text.rules.NumberRule;
 import org.eclipse.jface.text.rules.SingleLineRule;
-import org.eclipse.jface.text.rules.WhitespaceRule;
 import org.eclipse.jface.text.rules.WordRule;
 import org.kacprzak.eclipse.django_editor.editors.AbsDjRuleBasedScanner;
 import org.kacprzak.eclipse.django_editor.editors.ColorProvider;
 import org.kacprzak.eclipse.django_editor.editors.GenericWordDetector;
 import org.kacprzak.eclipse.django_editor.editors.dj.DjangoTagRule;
 import org.kacprzak.eclipse.django_editor.editors.dj.DjangoVariableRule;
-import org.kacprzak.eclipse.django_editor.editors.dj.DjangoWhitespaceDetector;
+import org.kacprzak.eclipse.django_editor.editors.dj.NonDjangoStringRule;
 import org.kacprzak.eclipse.django_editor.preferences.IDjangoPrefs;
 
 public class JavaScriptScanner extends AbsDjRuleBasedScanner {
@@ -51,30 +50,26 @@ public class JavaScriptScanner extends AbsDjRuleBasedScanner {
 		IToken number  = colorProvider.getToken(IDjangoPrefs.JSNUMBER_COLOR, IDjangoPrefs.JSNUMBER_STYLE);
 
 		List<IRule> rules = new ArrayList<IRule>();
-		rules.add(new DjangoTagRule(colorProvider));
-		rules.add(new DjangoVariableRule(colorProvider));
-
-		IToken djTag 		= colorProvider.getToken(IDjangoPrefs.DJKEYWORD_COLOR, IDjangoPrefs.DJKEYWORD_STYLE);
-		IToken djVariable 	= colorProvider.getToken(IDjangoPrefs.DJVARIABLE_COLOR, IDjangoPrefs.DJVARIABLE_STYLE);
-		rules.add(new MultiLineRule("{%", "%}", djTag));
-		rules.add(new MultiLineRule("{{", "}}", djVariable));
-
-		rules.add(new SingleLineRule("\"", "\"", string, '\\'));
-		rules.add(new SingleLineRule("'", "'", string, '\\'));
 		rules.add(new EndOfLineRule("//", comment));
 		rules.add(new MultiLineRule("/*", "*/", comment));
 		rules.add(new SingleLineRule("<script", ">", script));
 		rules.add(new SingleLineRule("</script", ">", script));
-		rules.add(new NumberRule(number));
 
-		rules.add(new WhitespaceRule(new DjangoWhitespaceDetector()));
+		//rules.add(new JQueryRule(colorProvider));
 
+		rules.add(new NonDjangoStringRule(colorProvider, string));
+		rules.add(new DjangoVariableRule(colorProvider));
+		rules.add(new DjangoTagRule(colorProvider));
+
+		//rules.add(new SingleLineRule("$(", ")", script));
+		
 		WordRule wordRule = new WordRule(new GenericWordDetector(), normal);
 		for(int i=0;i<KEYWORDS.length;i++){
 			wordRule.addWord(KEYWORDS[i], keyword);
 		}
 		rules.add(wordRule);
-
+		rules.add(new NumberRule(number));
+		
 		return rules;
 	}
 
