@@ -23,6 +23,14 @@
             id="org.kacprzak.eclipse.django_editor"
             name="Django Editor">
       </page>
+<!--      
+      <page
+            category="org.kacprzak.eclipse.django_editor"
+            class="org.kacprzak.eclipse.django_editor.preferences.DjangoOutlinePreferencesPage"
+            id="org.kacprzak.eclipse.django_editor.preferences.outline"
+            name="Outline">
+      </page>
+-->      
       <page
             category="org.kacprzak.eclipse.django_editor"
             class="org.kacprzak.eclipse.django_editor.templates.DjangoTemplatesPreferencesPage"

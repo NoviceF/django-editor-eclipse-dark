@@ -11,33 +11,15 @@
 
 package org.kacprzak.eclipse.django_editor.editors.outline;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.jface.resource.ImageRegistry;
-import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.jface.text.BadPositionCategoryException;
-import org.eclipse.jface.text.DefaultPositionUpdater;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.text.IPositionUpdater;
-import org.eclipse.jface.text.Position;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
-import org.kacprzak.eclipse.django_editor.DjangoPlugin;
-import org.kacprzak.eclipse.django_editor.IDjangoImages;
-import org.kacprzak.eclipse.django_editor.IDjangoPartitions;
-import org.kacprzak.eclipse.django_editor.editors.dj.IDjangoSyntax;
 
 /**
  * A content outline page.
@@ -73,8 +55,10 @@ public class DjangoContentOutlinePage extends ContentOutlinePage {
 		viewer.setLabelProvider(new DjLabelProvider());
 		viewer.addSelectionChangedListener(this);
 
-		if (fInput != null)
+		if (fInput != null) {
 			viewer.setInput(fInput);
+			viewer.expandAll();
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -88,13 +72,19 @@ public class DjangoContentOutlinePage extends ContentOutlinePage {
 		if (selection.isEmpty())
 			fTextEditor.resetHighlightRange();
 		else {
-//			XMLElement element = (XMLElement) ((IStructuredSelection) selection).getFirstElement();				
-			SegmentModel element= (SegmentModel) ((IStructuredSelection) selection).getFirstElement();
-			int start = element.getPosition().getOffset();
-			int length = element.getPosition().getLength();
+			DjDocTag element= (DjDocTag) ((IStructuredSelection) selection).getFirstElement();
+			int start = element.getPositionStart().getOffset();
+			int end = 0;
+			int length = element.getPositionStart().getLength();
+			if (element.getPositionEnd() != null) {
+				end = element.getPositionEnd().getOffset();
+				length = end - start + element.getPositionEnd().getLength();
+			}
 
 			try {
 				fTextEditor.setHighlightRange(start, length, true);
+				// TODO: PREFERENCES: IF HIGHLIGHT up to end tag
+				fTextEditor.selectAndReveal(start, length);
 			} catch (IllegalArgumentException x) {
 				fTextEditor.resetHighlightRange();
 			}

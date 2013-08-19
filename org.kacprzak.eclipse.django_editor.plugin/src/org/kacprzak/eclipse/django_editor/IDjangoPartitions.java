@@ -1,9 +1,6 @@
 package org.kacprzak.eclipse.django_editor;
 
-import java.util.TreeMap;
-
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.swt.graphics.Image;
 
 /**
  * Django template file partitions
@@ -47,7 +44,7 @@ public interface IDjangoPartitions {
    //public final static TreeMap<String, Image> OUTLINE_CONTENT_TYPES = new TreeMap<String, Image>();
     public final static String[] OUTLINE_CONTENT_TYPES = new String[] {
 //    	DJANGO_DEFAULT,
-////		, DJANGO_COMMENT
+//		DJANGO_COMMENT,
     	DJANGO_TAG
 		, DJANGO_FILTER
 		, DJANGO_VARIABLE

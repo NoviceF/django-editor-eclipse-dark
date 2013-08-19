@@ -7,3 +7,9 @@ syntax: regexp
 \.jar$
 syntax: regexp
 ^org\.kacprzak\.eclipse\.django_editor\.plugin/bin$
+syntax: regexp
+^org\.kacprzak\.eclipse\.django_editor\.plugin/NewCopyOfDjangoContentOutlinePage\.java$
+syntax: regexp
+^org\.kacprzak\.eclipse\.django_editor\.plugin/NewCopyOfDjangoOutlineProvider\.java$
+syntax: regexp
+^org\.kacprzak\.eclipse\.django_editor\.plugin/src/org/kacprzak/eclipse/django_editor/editors/outline/OLD_CopyOfDjangoContentOutlinePage\.java$
