@@ -100,7 +100,7 @@ public class DjangoEditor extends TextEditor implements IPropertyChangeListener 
 	}
 
 	@Override
-	public Object getAdapter(Class required) {
+	public Object getAdapter(@SuppressWarnings("rawtypes") Class required) {
 		if (IContentOutlinePage.class.equals(required)) {
 			if (outlinePage == null) {
 				outlinePage= new DjangoContentOutlinePage(getDocumentProvider(), this);

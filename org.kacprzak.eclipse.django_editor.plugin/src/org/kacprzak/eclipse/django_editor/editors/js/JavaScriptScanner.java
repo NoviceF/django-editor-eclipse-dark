@@ -57,11 +57,12 @@ public class JavaScriptScanner extends AbsDjRuleBasedScanner {
 
 		//rules.add(new JQueryRule(colorProvider));
 
-		rules.add(new NonDjangoStringRule(colorProvider, string));
 		rules.add(new DjangoVariableRule(colorProvider));
 		rules.add(new DjangoTagRule(colorProvider));
 
-		//rules.add(new SingleLineRule("$(", ")", script));
+		rules.add(new NonDjangoStringRule(colorProvider, string));
+
+		//rules.add(new SingleLineRule("$(", ")", keyword));
 		
 		WordRule wordRule = new WordRule(new GenericWordDetector(), normal);
 		for(int i=0;i<KEYWORDS.length;i++){

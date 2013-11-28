@@ -75,6 +75,8 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
 
 	@Override
 	public IToken evaluate(ICharacterScanner scanner) {
+//		System.out.println("@@@ DjangoTagRule.evaluate BEGIN");
+		try {
         char ch = (char) scanner.read();
         if (isTagDelimiterStart(ch)) {
             char nch = (char) scanner.read();
@@ -111,7 +113,7 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
             do {
             	strBuffer.append(ch);
                 ch = (char) scanner.read();
-            } while ( ((int) ch) != ICharacterScanner.EOF && wordDetector.isWordPart(ch) );
+            } while ( ((int) ch) != 65535 && ((int) ch) != ICharacterScanner.EOF && wordDetector.isWordPart(ch) );
             scanner.unread();
 
             String str = strBuffer.toString();
@@ -149,5 +151,8 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
 
         scanner.unread();
         return Token.UNDEFINED;
+		} finally {
+//			System.out.println("@@* DjangoTagRule.evaluate END");
+		}
 	}
 }

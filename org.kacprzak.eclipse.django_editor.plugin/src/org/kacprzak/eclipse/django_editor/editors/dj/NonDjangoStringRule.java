@@ -15,57 +15,29 @@ public class NonDjangoStringRule implements IRule {
     protected IToken 				stringToken;
 
 	public NonDjangoStringRule(ColorProvider provider, IToken iStringToken) {
-        colorProvider = provider;
+        colorProvider 	= provider;
         stringToken 	= iStringToken;
 	}
 
-    private boolean detectedDjangoTag(char ch, ICharacterScanner scanner) {
-    	if (ch != '{' && ch != '%') 
-    		return false;
-        char nch = (char) scanner.read();
-        scanner.unread();
-        if ( ch == '{' && (nch == '%' || nch == '{') ) {
-        	insideDjTag = true;
-        	return true;
-        } else if ( (ch == '%' || ch == '}') && nch == '}') {
-        	insideDjTag = false;
-        	return true;
-        }
-        return false;
-    }
-
     private char instr = '0';
-    private boolean insideDjTag = false;
 
 	@Override
 	public IToken evaluate(ICharacterScanner scanner) {
         char ch = (char) scanner.read();
-        if (detectedDjangoTag(ch, scanner)) {
-        	scanner.unread();
-            return Token.UNDEFINED;
-        }
-        if (! insideDjTag) {
-	        if (ch == '"' || ch == '\'' || instr != '0') {
-	        	if (instr == ch) {
-	        		instr = '0';
-	        		return stringToken;
-	        	}
-	        	if (instr == '0')
-	        		instr = ch;
-
-	            do {
-	                ch = (char) scanner.read();
-	            } while ( ((int) ch) != ICharacterScanner.EOF && ch != '{' && ch != instr );
-	            if (ch != instr) {
-	            	if (detectedDjangoTag(ch, scanner)) {
-	            		scanner.unread();
-	            	}
-	            } else
-	            	instr = '0';
-	        	return stringToken;
-	        }
-        }
-
+		boolean eod = (int) ch == 65535; // 0xFFFF - on 64bit Linux; need to catch otherwise Eclipse hangs
+		boolean eof = ((int) ch) == ICharacterScanner.EOF;
+		if (eod || eof) {
+		    scanner.unread();
+		    return Token.UNDEFINED;
+		}
+		
+		if (ch == '"' || ch == '\'' || instr != '0') {
+			if (instr == '0')
+				instr = ch;
+			else if (instr == ch)
+				instr = '0';
+		    return stringToken;
+		}		
         scanner.unread();
         return Token.UNDEFINED;
 	}

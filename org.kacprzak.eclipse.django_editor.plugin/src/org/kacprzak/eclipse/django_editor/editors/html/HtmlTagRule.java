@@ -36,6 +36,8 @@ public class HtmlTagRule implements IRule {
     
 	@Override
 	public IToken evaluate(ICharacterScanner scanner) {
+//System.out.println("-- HtmlTagRule.evaluate BEGIN");
+		try {
         char ch = (char) scanner.read();
         if (isTagStart(ch)) {
         	attr = false;
@@ -43,9 +45,9 @@ public class HtmlTagRule implements IRule {
         	ch = (char) scanner.read();
         	if (ch != '/')
         		scanner.unread();
-            do {
+        	do {
                 ch = (char) scanner.read();
-            } while ( ((int) ch) != ICharacterScanner.EOF && wordDetector.isWordPart(ch) );
+            } while ( ((int) ch) != 65535 && ((int) ch) != ICharacterScanner.EOF && wordDetector.isWordPart(ch) );
             scanner.unread();
             return defaultToken;
 
@@ -57,6 +59,7 @@ public class HtmlTagRule implements IRule {
             		attr = false;
             		return defaultToken;
             	}
+            	scanner.unread();
             } else if (isTagEnd(ch)) {
             	attr = false;
             	instr = '0';
@@ -79,7 +82,7 @@ public class HtmlTagRule implements IRule {
                 return stringToken;
 
             } else if (!attr && (wordDetector.isWordPart(ch) || ch == '}') ) {
-                do {
+            	do {
                     ch = (char) scanner.read();
                 } while ( wordDetector.isWordPart(ch));
                 scanner.unread();
@@ -91,5 +94,8 @@ public class HtmlTagRule implements IRule {
         }
         scanner.unread();
         return Token.UNDEFINED;
+	} finally {
+//		System.out.println("-* HtmlTagRule.evaluate; END");
 	}
+	} // evaluate
 }

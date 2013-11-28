@@ -38,6 +38,7 @@ class DjangoOutlineDocumentParser {
 	
 	void parseDocument(IDocument document) {
 
+//System.out.println("\n**** START parseDocument");		
 		DjDocTag aCurrent = null;
 		String[] docPosCats = document.getPositionCategories();
 		for (String dPosCat : docPosCats) {
@@ -52,15 +53,18 @@ class DjangoOutlineDocumentParser {
 						aConType = document.getContentType(aPos.offset);
 						if (!isConTypeSupported(aConType))
 							continue;
+//System.out.println("Content type supported: " + aConType);
 						aToken = document.get(aPos.offset, aPos.length).trim();
 						if (aToken == null || aToken.isEmpty())
 							continue;
 						aLineNr = document.getLineOfOffset(aPos.offset) + 1;
+//System.out.println("  Line " + aLineNr + ": " + aToken);
 					} catch (BadLocationException e) {
 						continue;
 					}
 					
 					DjDocTag aTag = new DjDocTag(aConType, aToken, aLineNr, aPos);
+//System.out.println("  DjDocTag; keyword=" + aTag.keyword + "; type=" + aTag.tokType.name());
 					if (aTag.keyword.isEmpty())
 						continue;
 					switch (aTag.tokType) {
@@ -81,6 +85,7 @@ class DjangoOutlineDocumentParser {
 						case END:
 							aTag.parent = null;
 							DjDocTag aTagStart = findStartingTag(aTag, aCurrent);
+//System.out.println("  END Tag; keyword=" + aTag.keyword + ( aTagStart == null ? "" : "; starting: " + aTagStart.lineNumber));
 							if (aTagStart != null) {
 								aTag.parent = aTagStart.parent;
 								aCurrent = aTagStart.parent;
@@ -97,6 +102,7 @@ class DjangoOutlineDocumentParser {
 				}
 			} catch (BadPositionCategoryException e) {}
 		}
+//System.out.println("\n**** END parseDocument\n");		
 	}
 
 	private DjDocTag findStartingTag(DjDocTag iTag, DjDocTag iCurrent) {
@@ -201,7 +207,7 @@ class DjDocTag {
 		String[] tokArr = iTokenValue.split("\\s+|\\|", 2);
 		keyword = tokArr[0];
 		if (tokArr.length > 1)
-			description = tokArr[1];
+			description = tokArr[1].split("\\n|\\r", 2)[0];
 	}
 
 	public String toString() {

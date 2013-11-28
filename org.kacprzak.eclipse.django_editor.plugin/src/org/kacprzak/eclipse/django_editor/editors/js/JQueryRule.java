@@ -49,7 +49,10 @@ public class JQueryRule implements IRule {
     
 	@Override
 	public IToken evaluate(ICharacterScanner scanner) {
+System.out.println("++ JQueryRule.evaluate BEGIN");
+		try {
         char ch = (char) scanner.read();
+System.out.println("JQueryRule.evaluate(1); ch=" + ch);
         if (jQueryStart(ch, scanner)) {
         	jQuery = true;
             return jQueryDelimiter;
@@ -60,9 +63,10 @@ public class JQueryRule implements IRule {
         	
         } else {
             
-        	boolean eod = (int) ch == 65535; // 0xFFFF - on 64bit Linux; need to catch otherwise Eclipse hangs
+        	boolean eod = ((int) ch) == 65535; // 0xFFFF - on 64bit Linux; need to catch otherwise Eclipse hangs
         	boolean eof = ((int) ch) == ICharacterScanner.EOF;
         	if (eod || eof) {
+System.out.println("JQueryRule.evaluate(5); EOF|EOD ch=" + ch);
                 scanner.unread();
                 return Token.UNDEFINED;
             }
@@ -76,10 +80,13 @@ public class JQueryRule implements IRule {
 
             } else if (wordDetector.isWordPart(ch)) {
             	StringBuffer strBuffer = new StringBuffer();
-                do {
+System.out.println("JQueryRule.evaluate(2-do-while)");
+            	do {
                 	strBuffer.append(ch);
                     ch = (char) scanner.read();
-                } while ( ((int) ch) != ICharacterScanner.EOF && wordDetector.isWordPart(ch) );
+System.out.println("JQueryRule.evaluate(2); ch=" + ch);
+                } while ( ((int) ch) != 65535 && ((int) ch) != ICharacterScanner.EOF && wordDetector.isWordPart(ch) );
+System.out.println("JQueryRule.evaluate(2a); unread" + ch);
                 scanner.unread();
 
                 String str = strBuffer.toString();
@@ -95,5 +102,8 @@ public class JQueryRule implements IRule {
         }
         scanner.unread();
         return Token.UNDEFINED;
+		} finally {
+			System.out.println("+* JQueryRule.evaluate END");
+		}
 	}
 }
