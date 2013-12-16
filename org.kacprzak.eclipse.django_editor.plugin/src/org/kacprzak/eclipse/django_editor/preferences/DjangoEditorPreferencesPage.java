@@ -295,10 +295,16 @@ public class DjangoEditorPreferencesPage extends PreferencePage implements IWork
     		new SyntaxItem("HTML <script>", 		IDjangoPrefs.HTMLSCRIPT_COLOR, IDjangoPrefs.HTMLSCRIPT_STYLE),
 
     		new SyntaxItem("JavaScript Keyword",	IDjangoPrefs.JSKEYWORD_COLOR, IDjangoPrefs.JSKEYWORD_STYLE),
+    		new SyntaxItem("JavaScript Reserved",	IDjangoPrefs.JSKEYWORD2_COLOR, IDjangoPrefs.JSKEYWORD2_STYLE),
+    		new SyntaxItem("JavaScript Built-In",	IDjangoPrefs.JSFUNCTION_COLOR, IDjangoPrefs.JSFUNCTION_STYLE),
+    		new SyntaxItem("JavaScript Operator",	IDjangoPrefs.JSOPERATOR_COLOR, IDjangoPrefs.JSOPERATOR_STYLE),
     		new SyntaxItem("JavaScript Number", 	IDjangoPrefs.JSNUMBER_COLOR, IDjangoPrefs.JSNUMBER_STYLE),
     		new SyntaxItem("JavaScript String", 	IDjangoPrefs.JSSTRING_COLOR, IDjangoPrefs.JSSTRING_STYLE),
     		new SyntaxItem("JavaScript Comment", 	IDjangoPrefs.JSCOMMENT_COLOR, IDjangoPrefs.JSCOMMENT_STYLE),
 
+    		new SyntaxItem("jQuery Built-In", 		IDjangoPrefs.JQFUNCTION_COLOR, IDjangoPrefs.JQFUNCTION_STYLE),
+    		new SyntaxItem("jQuery Selector", 		IDjangoPrefs.JQSELECTOR_COLOR, IDjangoPrefs.JQSELECTOR_STYLE),
+    		
     		new SyntaxItem("CSS Selector", 			IDjangoPrefs.CSSSELECTOR_COLOR, IDjangoPrefs.CSSSELECTOR_STYLE),
     		new SyntaxItem("CSS Property", 			IDjangoPrefs.CSSPROP_COLOR, IDjangoPrefs.CSSPROP_STYLE),
     		new SyntaxItem("CSS Value", 			IDjangoPrefs.CSSVALUE_COLOR, IDjangoPrefs.CSSVALUE_STYLE),

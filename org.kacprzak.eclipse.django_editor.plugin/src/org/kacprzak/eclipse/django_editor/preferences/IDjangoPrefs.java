@@ -62,13 +62,23 @@ public interface IDjangoPrefs {
 	// JavaScript colors
 	public static final String JSSTRING_COLOR       = "_pref_jsstring_color";
 	public static final String JSKEYWORD_COLOR      = "_pref_jskeyword_color";
+	public static final String JSKEYWORD2_COLOR     = "_pref_jskeyword2_color";
 	public static final String JSCOMMENT_COLOR      = "_pref_jscomment_color";
 	public static final String JSNUMBER_COLOR		= "_pref_jsnumber_color";
+	public static final String JSOPERATOR_COLOR		= "_pref_jsoperator_color";
+	public static final String JSFUNCTION_COLOR		= "_pref_jsfunction_color";	
+	public static final String JQFUNCTION_COLOR		= "_pref_jqfunction_color";	
+	public static final String JQSELECTOR_COLOR		= "_pref_jqselector_color";	
 
 	public static final String JSSTRING_STYLE       = "_pref_jsstring_style";
 	public static final String JSKEYWORD_STYLE      = "_pref_jskeyword_style";
+	public static final String JSKEYWORD2_STYLE     = "_pref_jskeyword2_style";
 	public static final String JSCOMMENT_STYLE      = "_pref_jscomment_style";
 	public static final String JSNUMBER_STYLE		= "_pref_jsnumber_style";
+	public static final String JSOPERATOR_STYLE		= "_pref_jsoperator_style";
+	public static final String JSFUNCTION_STYLE		= "_pref_jsfunction_style";	
+	public static final String JQFUNCTION_STYLE		= "_pref_jqfunction_style";	
+	public static final String JQSELECTOR_STYLE		= "_pref_jqselector_style";	
 
 	public static final String[] COLOR_NAMES = {
 		  DJKEYWORD_COLOR
@@ -98,8 +108,14 @@ public interface IDjangoPrefs {
 
 		, JSSTRING_COLOR
 		, JSKEYWORD_COLOR
+		, JSKEYWORD2_COLOR
+		, JSFUNCTION_COLOR
 		, JSCOMMENT_COLOR
 		, JSNUMBER_COLOR
+		, JSOPERATOR_COLOR
+		
+		, JQFUNCTION_COLOR
+		, JQSELECTOR_COLOR
 	};
 
 	public static final String[] STYLE_NAMES = {
@@ -130,8 +146,14 @@ public interface IDjangoPrefs {
 
 		, JSSTRING_STYLE
 		, JSKEYWORD_STYLE
+		, JSKEYWORD2_STYLE
+		, JSFUNCTION_STYLE
 		, JSCOMMENT_STYLE
 		, JSNUMBER_STYLE
+		, JSOPERATOR_STYLE
+
+		, JQFUNCTION_STYLE
+		, JQSELECTOR_STYLE
 	};
 
 }

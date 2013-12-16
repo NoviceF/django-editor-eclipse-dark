@@ -13,10 +13,12 @@ public class NonDjangoStringRule implements IRule {
 
     protected ColorProvider 		colorProvider;
     protected IToken 				stringToken;
+    protected IToken 				defaultToken;
 
-	public NonDjangoStringRule(ColorProvider provider, IToken iStringToken) {
+	public NonDjangoStringRule(ColorProvider provider, IToken iStringToken, IToken iDefaultToken) {
         colorProvider 	= provider;
         stringToken 	= iStringToken;
+        defaultToken    = iDefaultToken;
 	}
 
     private char instr = '0';
@@ -26,7 +28,8 @@ public class NonDjangoStringRule implements IRule {
         char ch = (char) scanner.read();
 		boolean eod = (int) ch == 65535; // 0xFFFF - on 64bit Linux; need to catch otherwise Eclipse hangs
 		boolean eof = ((int) ch) == ICharacterScanner.EOF;
-		if (eod || eof) {
+		if (eod || eof || ch == '\r' || ch == '\n') {
+			instr = '0';
 		    scanner.unread();
 		    return Token.UNDEFINED;
 		}

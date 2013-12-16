@@ -37,8 +37,15 @@ public interface IDjangoColorConstants {
 	// JavaScript colors
 	RGB JS_STRING			= new RGB(0, 153, 102);
 	RGB JS_KEYWORD 			= new RGB(0,   0, 255);
+	RGB JS_KEYWORD2			= new RGB(102, 0, 205);
 	RGB JS_COMMENT 			= new RGB(153, 102, 102);
-	RGB JS_NUMBER			= new RGB(255, 0, 0);
+	RGB JS_NUMBER			= new RGB(86, 61, 150);
+	RGB JS_OPERATOR         = new RGB(255, 0, 0);
+	RGB JS_FUNCTION         = new RGB(210, 105, 0);
+	
+	// jQuery colors
+	RGB JQ_FUNCTION         = new RGB(255, 50, 102);
+	RGB JQ_SELECTOR         = new RGB(155, 50, 0);
 
 	// defaults
 	RGB DEFAULT_FOREGROUND  = new RGB(20, 20, 150);//Display.getCurrent().getSystemColor(SWT.COLOR_WIDGET_FOREGROUND).getRGB();

@@ -79,13 +79,21 @@ public class DjangoPreferenceInitializer extends AbstractPreferenceInitializer
 		// JavaScript colors
 		defaultColors.put(IDjangoPrefs.JSSTRING_COLOR, 		StringConverter.asString(IDjangoColorConstants.JS_STRING));
 		defaultColors.put(IDjangoPrefs.JSKEYWORD_COLOR, 	StringConverter.asString(IDjangoColorConstants.JS_KEYWORD));
+		defaultColors.put(IDjangoPrefs.JSKEYWORD2_COLOR, 	StringConverter.asString(IDjangoColorConstants.JS_KEYWORD2));
 		defaultColors.put(IDjangoPrefs.JSCOMMENT_COLOR, 	StringConverter.asString(IDjangoColorConstants.JS_COMMENT));
 		defaultColors.put(IDjangoPrefs.JSNUMBER_COLOR, 		StringConverter.asString(IDjangoColorConstants.JS_NUMBER));
+		defaultColors.put(IDjangoPrefs.JSOPERATOR_COLOR, 	StringConverter.asString(IDjangoColorConstants.JS_OPERATOR));
+		defaultColors.put(IDjangoPrefs.JSFUNCTION_COLOR, 	StringConverter.asString(IDjangoColorConstants.JS_FUNCTION));
+		defaultColors.put(IDjangoPrefs.JQFUNCTION_COLOR, 	StringConverter.asString(IDjangoColorConstants.JQ_FUNCTION));
+		defaultColors.put(IDjangoPrefs.JQSELECTOR_COLOR, 	StringConverter.asString(IDjangoColorConstants.JQ_SELECTOR));
 
 		defaultColors.put(IDjangoPrefs.JSSTRING_STYLE, 		StringConverter.asString(SWT.ITALIC));
 		defaultColors.put(IDjangoPrefs.JSKEYWORD_STYLE, 	StringConverter.asString(0));
+		defaultColors.put(IDjangoPrefs.JSKEYWORD2_STYLE, 	StringConverter.asString(SWT.ITALIC));
 		defaultColors.put(IDjangoPrefs.JSCOMMENT_STYLE, 	StringConverter.asString(SWT.ITALIC));
 		defaultColors.put(IDjangoPrefs.JSNUMBER_STYLE, 		StringConverter.asString(0));
+		defaultColors.put(IDjangoPrefs.JSOPERATOR_STYLE, 	StringConverter.asString(0));
+		defaultColors.put(IDjangoPrefs.JSFUNCTION_STYLE, 	StringConverter.asString(0));
 	}
 
 	public static void setDefaults(IPreferenceStore store) {
