@@ -156,8 +156,8 @@ public class DjangoEditorPreferencesPage extends PreferencePage implements IWork
 
         mColorsList = new List(editorComposite, SWT.SINGLE | SWT.V_SCROLL | SWT.BORDER);
         gd = new GridData(GridData.VERTICAL_ALIGN_BEGINNING | GridData.FILL_HORIZONTAL);
-        gd.heightHint = convertHeightInCharsToPixels(10);
-        gd.widthHint = convertHeightInCharsToPixels(10);
+        gd.heightHint = convertHeightInCharsToPixels(23);
+        gd.widthHint = convertHeightInCharsToPixels(13);
         mColorsList.setLayoutData(gd);
 
         Composite stylesComposite= new Composite(editorComposite, SWT.NONE);

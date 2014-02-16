@@ -83,6 +83,7 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
             if (ch == '{' && nch == '%') {
             	insideDjangoTag = true;
             	prevWasTagDelimiter = true;
+            	instr = '0';
             	return delimiterToken;
             } else if (ch == '%' && nch == '}') {
             	insideDjangoTag = false;
@@ -102,6 +103,13 @@ public class DjangoTagRule implements IRule, IDjangoSyntax {
         		instr = ch;
         	else if (instr == ch)
         		instr = '0';
+        	else {
+        		int iCh = (int) ch;
+        		if (iCh == 65535 || iCh == ICharacterScanner.EOF) {
+        			//scanner.unread();
+        			instr = '0';
+        		}
+        	}
         	return stringToken;
 
         } else if (ch == '|') {
