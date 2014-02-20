@@ -145,6 +145,16 @@
         autoinsert="true"
         context="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
         deleted="false"
+        description="The if tag can take an optional {% elif %} clause"
+        enabled="true"
+        name="ifelifelse"
+        id="org.kacprzak.eclipse.django_editor.templates.tags.ifelse"
+   >{% if ${condition} %}{% elif ${condition} %}{% else %}{% endif %}</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.django_tag"
+        deleted="false"
         description="Check if a value has changed from the last iteration of a loop"
         enabled="true"
         name="ifchanged"
