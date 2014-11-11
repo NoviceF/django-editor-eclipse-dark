@@ -14,6 +14,8 @@ public class DjangoContextType extends TemplateContextType {
 			"org.kacprzak.eclipse.django_editor.templates.contextType.django_tag";
 	public static final String DJANGO_CONTEXT_TYPE_FILTER = 
 			"org.kacprzak.eclipse.django_editor.templates.contextType.django_filter";
+	public static final String HTML_CONTEXT_TYPE_TAG = 
+			"org.kacprzak.eclipse.django_editor.templates.contextType.html_tag";
 
 	public DjangoContextType(){
 		addResolver(new GlobalTemplateVariables.Cursor());

@@ -1,6 +1,5 @@
 package org.kacprzak.eclipse.django_editor.editors;
 
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.ITextDoubleClickStrategy;
 import org.eclipse.jface.text.contentassist.ContentAssistant;
@@ -13,15 +12,15 @@ import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 import org.eclipse.swt.graphics.RGB;
-import org.kacprzak.eclipse.django_editor.DjangoPlugin;
 import org.kacprzak.eclipse.django_editor.IDjangoPartitions;
-import org.kacprzak.eclipse.django_editor.editors.completion.DjangoCompletionProcessor;
+import org.kacprzak.eclipse.django_editor.editors.completion.DjAndHtmlCompletionProcessor;
+import org.kacprzak.eclipse.django_editor.editors.completion.DjHtCompletionProcessor;
 import org.kacprzak.eclipse.django_editor.editors.completion.DjangoFilterCompletionProcessor;
 import org.kacprzak.eclipse.django_editor.editors.completion.DjangoTagCompletionProcessor;
+import org.kacprzak.eclipse.django_editor.editors.completion.ZmkCompletionProcessor;
 import org.kacprzak.eclipse.django_editor.editors.css.CssScanner;
 import org.kacprzak.eclipse.django_editor.editors.dj.DjangoTagScanner;
 import org.kacprzak.eclipse.django_editor.editors.dj.DjangoVariableScanner;
-import org.kacprzak.eclipse.django_editor.editors.format.DefaultFormattingStrategy;
 import org.kacprzak.eclipse.django_editor.editors.format.TextFormattingStrategy;
 import org.kacprzak.eclipse.django_editor.editors.html.HtmlTagScanner;
 import org.kacprzak.eclipse.django_editor.editors.js.JavaScriptScanner;
@@ -49,11 +48,11 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 	private DjangoVariableScanner 	djVariableScanner;
 
 	private ColorProvider 			colorProvider;
-	private IPreferenceStore 		store;
+//	private IPreferenceStore 		store;
 
 	public DjangoSourceViewerConfiguration(ColorProvider colorProvider) {
 		this.colorProvider = colorProvider;
-		this.store = DjangoPlugin.getDefault().getPreferenceStore();
+//		this.store = DjangoPlugin.getDefault().getPreferenceStore();
 	}
 
 	public String[] getConfiguredContentTypes(ISourceViewer sourceViewer) {
@@ -83,33 +82,31 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 	public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
 		ContentAssistant assistant = new ContentAssistant();
 
+		//assistant.setDocumentPartitioning(IDjangoPartitions.CONFIGURED_CONTENT_TYPES);
+		
 		// default templates
-		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+//		assistant.setContentAssistProcessor(new DjAndHtmlCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+		assistant.setContentAssistProcessor(new ZmkCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+//		assistant.setContentAssistProcessor(new HtmlTagCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+//		assistant.setContentAssistProcessor(new DjHtCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+//		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 		assistant.setContentAssistProcessor(new DjangoFilterCompletionProcessor(), IDjangoPartitions.DJANGO_VARIABLE);
 
 		assistant.setContentAssistProcessor(new DjangoFilterCompletionProcessor(), IDjangoPartitions.DJANGO_TAG);
-//		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.DJANGO_TAG);
 		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.HTML_TAG);
 		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.JAVA_SCRIPT);
 		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.HTML_CSS);
 
-//		// display Django keywords
-//		assistant.setContentAssistProcessor(new DjangoCompletionProcessor(IDjangoPartitions.DJANGO_TAG),
-//											IDocument.DEFAULT_CONTENT_TYPE);
-//
-//		// display Django filters
-//		assistant.setContentAssistProcessor(new DjangoCompletionProcessor(IDjangoPartitions.DJANGO_VARIABLE),
-//											IDjangoPartitions.DJANGO_VARIABLE);
-
 		assistant.enableAutoInsert(true);
 		assistant.enableAutoActivation(true);
 		assistant.setAutoActivationDelay(100);
-		//assistant.enableColoredLabels(true); 
-		//assistant.setProposalPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
-		//assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
-		//assistant.setContextInformationPopupBackground(colorProvider.getColor(new RGB(0, 0, 0)));
 
-		//assistant.setDocumentPartitioning(IDjangoPartitions.CONFIGURED_CONTENT_TYPES);
+		assistant.enableColoredLabels(true);
+//		assistant.setStatusLineVisible(true);
+//		assistant.setProposalPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
+//		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
+//		assistant.setContextInformationPopupBackground(colorProvider.getColor(new RGB(0, 0, 0)));
+
 
 		assistant.setProposalSelectorBackground(colorProvider.getColor(new RGB(255, 255, 225)));
 

@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a comment"
+        enabled="true"
+        name="comment"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.comment"
+   >&lt;!-- ${cursor} --&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines the document type"
+        enabled="true"
+        name="doctype"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.doctype"
+   >&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a hyperlink"
+        enabled="true"
+        name="a"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.a"
+   >&lt;a&gt;${cursor}&lt;/a&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an abbreviation"
+        enabled="true"
+        name="abbr"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.abbr"
+   >&lt;abbr&gt;${cursor}&lt;/abbr&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines an acronym. Use 'abbr' instead."
+        enabled="true"
+        name="acronym"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.acronym"
+   >&lt;acronym&gt;${cursor}&lt;/acronym&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines contact information for the author/owner of a document"
+        enabled="true"
+        name="address"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.address"
+   >&lt;address&gt;${cursor}&lt;/address&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines an embedded applet. Use 'object' instead."
+        enabled="true"
+        name="applet"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.applet"
+   >&lt;applet&gt;${cursor}&lt;/applet&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an area inside an image-map"
+        enabled="true"
+        name="area"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.area"
+   >&lt;area&gt;${cursor}&lt;/area&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines an article"
+        enabled="true"
+        name="article"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.article"
+   >&lt;article&gt;${cursor}&lt;/article&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines content aside from the page content"
+        enabled="true"
+        name="aside"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.aside"
+   >&lt;aside&gt;${cursor}&lt;/aside&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines sound content"
+        enabled="true"
+        name="audio"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.audio"
+   >&lt;audio&gt;${cursor}&lt;/audio&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines bold text"
+        enabled="true"
+        name="b"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.b"
+   >&lt;b&gt;${cursor}&lt;/b&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Specifies the base URL/target for all relative URLs in a document"
+        enabled="true"
+        name="base"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.base"
+   >&lt;base&gt;${cursor}&lt;/base&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Specifies a default color, size, and font for all text in a document. Use CSS instead."
+        enabled="true"
+        name="basefont"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.basefont"
+   >&lt;basefont&gt;${cursor}&lt;/basefont&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Isolates a part of text that might be formatted in a different direction from other text outside it"
+        enabled="true"
+        name="bdi"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.bdi"
+   >&lt;bdi&gt;${cursor}&lt;/bdi&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Overrides the current text direction"
+        enabled="true"
+        name="bdo"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.bdo"
+   >&lt;bdo&gt;${cursor}&lt;/bdo&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines big text. Use CSS instead."
+        enabled="true"
+        name="big"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.big"
+   >&lt;big&gt;${cursor}&lt;/big&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a section that is quoted from another source"
+        enabled="true"
+        name="blockquote"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.blockquote"
+   >&lt;blockquote&gt;${cursor}&lt;/blockquote&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines the document's body"
+        enabled="true"
+        name="body"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.body"
+   >&lt;body&gt;${cursor}&lt;/body&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a single line break"
+        enabled="true"
+        name="br"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.br"
+   >&lt;br /&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a clickable button"
+        enabled="true"
+        name="button"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.button"
+   >&lt;button&gt;${cursor}&lt;/button&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Used to draw graphics, on the fly, via scripting (usually JavaScript)"
+        enabled="true"
+        name="canvas"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.canvas"
+   >&lt;canvas&gt;${cursor}&lt;/canvas&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a table caption"
+        enabled="true"
+        name="caption"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.caption"
+   >&lt;caption&gt;${cursor}&lt;/caption&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines centered text. Use CSS instead."
+        enabled="true"
+        name="center"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.center"
+   >&lt;center&gt;${cursor}&lt;/center&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines the title of a work"
+        enabled="true"
+        name="cite"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.cite"
+   >&lt;cite&gt;${cursor}&lt;/cite&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a piece of computer code"
+        enabled="true"
+        name="code"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.code"
+   >&lt;code&gt;${cursor}&lt;/code&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Specifies column properties for each column within a 'colgroup' element"
+        enabled="true"
+        name="col"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.col"
+   >&lt;col&gt;${cursor}&lt;/col&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Specifies a group of one or more columns in a table for formatting"
+        enabled="true"
+        name="colgroup"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.colgroup"
+   >&lt;colgroup&gt;${cursor}&lt;/colgroup&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Specifies a list of pre-defined options for input controls"
+        enabled="true"
+        name="datalist"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.datalist"
+   >&lt;datalist&gt;${cursor}&lt;/datalist&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a description/value of a term in a description list"
+        enabled="true"
+        name="dd"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.dd"
+   >&lt;dd&gt;${cursor}&lt;/dd&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines text that has been deleted from a document"
+        enabled="true"
+        name="del"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.del"
+   >&lt;del&gt;${cursor}&lt;/del&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines additional details that the user can view or hide"
+        enabled="true"
+        name="details"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.details"
+   >&lt;details&gt;${cursor}&lt;/details&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a definition term"
+        enabled="true"
+        name="dfn"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.dfn"
+   >&lt;dfn&gt;${cursor}&lt;/dfn&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a dialog box or window"
+        enabled="true"
+        name="dialog"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.dialog"
+   >&lt;dialog&gt;${cursor}&lt;/dialog&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines a directory list. Use &lt;ul&gt; instead."
+        enabled="true"
+        name="dir"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.dir"
+   >&lt;dir&gt;${cursor}&lt;/dir&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a section in a document"
+        enabled="true"
+        name="div"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.div"
+   >&lt;div&gt;${cursor}&lt;/div&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a description list"
+        enabled="true"
+        name="dl"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.dl"
+   >&lt;dl&gt;${cursor}&lt;/dl&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a term/name in a description list"
+        enabled="true"
+        name="dt"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.dt"
+   >&lt;dt&gt;${cursor}&lt;/dt&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines emphasized text"
+        enabled="true"
+        name="em"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.em"
+   >&lt;em&gt;${cursor}&lt;/em&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a container for an external (non-HTML) application"
+        enabled="true"
+        name="embed"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.embed"
+   >&lt;embed&gt;${cursor}&lt;/embed&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Groups related elements in a form"
+        enabled="true"
+        name="fieldset"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.fieldset"
+   >&lt;fieldset&gt;${cursor}&lt;/fieldset&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a caption for a &lt;figure&gt; element"
+        enabled="true"
+        name="figcaption"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.figcaption"
+   >&lt;figcaption&gt;${cursor}&lt;/figcaption&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Specifies self-contained content"
+        enabled="true"
+        name="figure"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.figure"
+   >&lt;figure&gt;${cursor}&lt;/figure&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines font, color, and size for text. Use CSS instead."
+        enabled="true"
+        name="font"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.font"
+   >&lt;font&gt;${cursor}&lt;/font&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a footer for a document or section"
+        enabled="true"
+        name="footer"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.footer"
+   >&lt;footer&gt;${cursor}&lt;/footer&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an HTML form for user input"
+        enabled="true"
+        name="form"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.form"
+   >&lt;form&gt;${cursor}&lt;/form&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines a window (a frame) in a frameset"
+        enabled="true"
+        name="frame"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.frame"
+   >&lt;frame&gt;${cursor}&lt;/frame&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines a set of frames"
+        enabled="true"
+        name="framset"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.framset"
+   >&lt;framset&gt;${cursor}&lt;/framset&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines HTML headings"
+        enabled="true"
+        name="h1"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.h1"
+   >&lt;h1&gt;${cursor}&lt;/h1&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines HTML headings"
+        enabled="true"
+        name="h2"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.h2"
+   >&lt;h2&gt;${cursor}&lt;/h2&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines HTML headings"
+        enabled="true"
+        name="h3"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.h3"
+   >&lt;h3&gt;${cursor}&lt;/h3&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines HTML headings"
+        enabled="true"
+        name="h4"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.h4"
+   >&lt;h4&gt;${cursor}&lt;/h4&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines HTML headings"
+        enabled="true"
+        name="h5"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.h5"
+   >&lt;h5&gt;${cursor}&lt;/h5&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines HTML headings"
+        enabled="true"
+        name="h6"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.h6"
+   >&lt;h6&gt;${cursor}&lt;/h6&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines information about the document"
+        enabled="true"
+        name="head"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.head"
+   >&lt;head&gt;${cursor}&lt;/head&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a header for a document or section"
+        enabled="true"
+        name="header"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.header"
+   >&lt;header&gt;${cursor}&lt;/header&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a group of headings"
+        enabled="true"
+        name="hgroup"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.hgroup"
+   >&lt;hgroup&gt;${cursor}&lt;/hgroup&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a thematic change in the content"
+        enabled="true"
+        name="hr"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.hr"
+   >&lt;hr /&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines the root of an HTML document"
+        enabled="true"
+        name="html"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.html"
+   >&lt;html&gt;${cursor}&lt;/html&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a part of text in an alternate voice or mood"
+        enabled="true"
+        name="i"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.i"
+   >&lt;i&gt;${cursor}&lt;/i&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an inline frame"
+        enabled="true"
+        name="iframe"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.iframe"
+   >&lt;iframe&gt;${cursor}&lt;/iframe&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an image"
+        enabled="true"
+        name="img"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.img"
+   >&lt;img&gt;${cursor}&lt;/img&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an input control"
+        enabled="true"
+        name="input"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.input"
+   >&lt;input&gt;${cursor}&lt;/input&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a text that has been inserted into a document"
+        enabled="true"
+        name="ins"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.ins"
+   >&lt;ins&gt;${cursor}&lt;/ins&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines keyboard input"
+        enabled="true"
+        name="kbd"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.kbd"
+   >&lt;kbd&gt;${cursor}&lt;/kbd&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a key-pair generator field (for forms)"
+        enabled="true"
+        name="keygen"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.keygen"
+   >&lt;keygen&gt;${cursor}&lt;/keygen&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a label for an 'input' element"
+        enabled="true"
+        name="label"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.label"
+   >&lt;label&gt;${cursor}&lt;/label&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a caption for a 'fieldset' element"
+        enabled="true"
+        name="liegend"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.liegend"
+   >&lt;liegend&gt;${cursor}&lt;/liegend&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a list item"
+        enabled="true"
+        name="li"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.li"
+   >&lt;li&gt;${cursor}&lt;/li&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines the relationship between a document and an external resource (most used to link to style sheets)"
+        enabled="true"
+        name="link"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.link"
+   >&lt;link&gt;${cursor}&lt;/link&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Specifies the main content of a document"
+        enabled="true"
+        name="main"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.main"
+   >&lt;main&gt;${cursor}&lt;/main&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a client-side image-map"
+        enabled="true"
+        name="map"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.map"
+   >&lt;map&gt;${cursor}&lt;/map&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines marked/highlighted text"
+        enabled="true"
+        name="mark"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.mark"
+   >&lt;mark&gt;${cursor}&lt;/mark&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a list/menu of commands"
+        enabled="true"
+        name="menu"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.menu"
+   >&lt;menu&gt;${cursor}&lt;/menu&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a command/menu item that the user can invoke from a popup menu"
+        enabled="true"
+        name="menuitem"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.menuitem"
+   >&lt;menuitem&gt;${cursor}&lt;/menuitem&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines metadata about an HTML document"
+        enabled="true"
+        name="meta"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.meta"
+   >&lt;meta&gt;${cursor}&lt;/meta&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a scalar measurement within a known range (a gauge)"
+        enabled="true"
+        name="meter"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.meter"
+   >&lt;meter&gt;${cursor}&lt;/meter&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines navigation links"
+        enabled="true"
+        name="nav"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.nav"
+   >&lt;nav&gt;${cursor}&lt;/nav&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines an alternate content for users that do not support frames"
+        enabled="true"
+        name="noframes"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.noframes"
+   >&lt;noframes&gt;${cursor}&lt;/noframes&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an alternate content for users that do not support client-side scripts"
+        enabled="true"
+        name="noscript"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.noscript"
+   >&lt;noscript&gt;${cursor}&lt;/noscript&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an embedded object"
+        enabled="true"
+        name="object"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.object"
+   >&lt;object&gt;${cursor}&lt;/object&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an ordered list"
+        enabled="true"
+        name="ol"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.ol"
+   >&lt;ol&gt;${cursor}&lt;/ol&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a group of related options in a drop-down list"
+        enabled="true"
+        name="optgroup"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.optgroup"
+   >&lt;optgroup&gt;${cursor}&lt;/optgroup&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an option in a drop-down list"
+        enabled="true"
+        name="option"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.option"
+   >&lt;option&gt;${cursor}&lt;/option&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines the result of a calculation"
+        enabled="true"
+        name="output"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.output"
+   >&lt;output&gt;${cursor}&lt;/output&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a paragraph"
+        enabled="true"
+        name="p"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.p"
+   >&lt;p&gt;${cursor}&lt;/p&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a parameter for an object"
+        enabled="true"
+        name="param"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.param"
+   >&lt;param&gt;${cursor}&lt;/param&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines preformatted text"
+        enabled="true"
+        name="pre"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.pre"
+   >&lt;pre&gt;${cursor}&lt;/pre&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Represents the progress of a task"
+        enabled="true"
+        name="progress"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.progress"
+   >&lt;progress&gt;${cursor}&lt;/progress&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a short quotation"
+        enabled="true"
+        name="q"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.q"
+   >&lt;q&gt;${cursor}&lt;/q&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines what to show in browsers that do not support ruby annotations"
+        enabled="true"
+        name="rp"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.rp"
+   >&lt;rp&gt;${cursor}&lt;/rp&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines an explanation/pronunciation of characters (for East Asian typography)"
+        enabled="true"
+        name="rt"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.rt"
+   >&lt;rt&gt;${cursor}&lt;/rt&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a ruby annotation (for East Asian typography)"
+        enabled="true"
+        name="ruby"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.ruby"
+   >&lt;ruby&gt;${cursor}&lt;/ruby&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines text that is no longer correct"
+        enabled="true"
+        name="s"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.s"
+   >&lt;s&gt;${cursor}&lt;/s&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines sample output from a computer program"
+        enabled="true"
+        name="samp"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.samp"
+   >&lt;samp&gt;${cursor}&lt;/samp&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a client-side script"
+        enabled="true"
+        name="script"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.script"
+   >&lt;script&gt;${cursor}&lt;/script&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a section in a document"
+        enabled="true"
+        name="section"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.section"
+   >&lt;section&gt;${cursor}&lt;/section&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a drop-down list"
+        enabled="true"
+        name="select"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.select"
+   >&lt;select&gt;${cursor}&lt;/select&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines smaller text"
+        enabled="true"
+        name="small"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.small"
+   >&lt;small&gt;${cursor}&lt;/small&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines multiple media resources for media elements (video, audio)"
+        enabled="true"
+        name="source"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.source"
+   >&lt;source&gt;${cursor}&lt;/source&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a section in a document"
+        enabled="true"
+        name="span"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.span"
+   >&lt;span&gt;${cursor}&lt;/span&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines strikethrough text. Use &lt;del&gt; instead."
+        enabled="true"
+        name="strike"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.strike"
+   >&lt;strike&gt;${cursor}&lt;/strike&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines important text"
+        enabled="true"
+        name="strong"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.strong"
+   >&lt;strong&gt;${cursor}&lt;/strong&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines style information for a document"
+        enabled="true"
+        name="style"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.style"
+   >&lt;style&gt;${cursor}&lt;/style&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines subscripted text"
+        enabled="true"
+        name="sub"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.sub"
+   >&lt;sub&gt;${cursor}&lt;/sub&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a visible heading for a &lt;details&gt; element"
+        enabled="true"
+        name="summary"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.summary"
+   >&lt;summary&gt;${cursor}&lt;/summary&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines superscripted text"
+        enabled="true"
+        name="sup"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.sup"
+   >&lt;sup&gt;${cursor}&lt;/sup&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a table"
+        enabled="true"
+        name="table"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.table"
+   >&lt;table&gt;${cursor}&lt;/table&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Table with 'thead' and 'tbody'"
+        enabled="true"
+        name="table_ext"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.table_ext"
+   >&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Groups the body content in a table"
+        enabled="true"
+        name="tbody"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.tbody"
+   >&lt;tbody&gt;${cursor}&lt;/tbody&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a cell in a table"
+        enabled="true"
+        name="td"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.td"
+   >&lt;td&gt;${cursor}&lt;/td&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a multiline input control (text area)"
+        enabled="true"
+        name="textarea"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.textarea"
+   >&lt;textarea&gt;${cursor}&lt;/textarea&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Groups the footer content in a table"
+        enabled="true"
+        name="tfoot"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.tfoot"
+   >&lt;tfoot&gt;${cursor}&lt;/tfoot&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a header cell in a table"
+        enabled="true"
+        name="th"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.th"
+   >&lt;th&gt;${cursor}&lt;/th&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Groups the header content in a table"
+        enabled="true"
+        name="thead"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.thead"
+   >&lt;thead&gt;${cursor}&lt;/thead&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a date/time"
+        enabled="true"
+        name="time"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.time"
+   >&lt;time&gt;${cursor}&lt;/time&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a title for the document"
+        enabled="true"
+        name="title"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.title"
+   >&lt;title&gt;${cursor}&lt;/title&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a row in a table"
+        enabled="true"
+        name="tr"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.tr"
+   >&lt;tr&gt;${cursor}&lt;/tr&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines text tracks for media elements (video, audio)"
+        enabled="true"
+        name="track"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.track"
+   >&lt;track&gt;${cursor}&lt;/track&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(no HTML5) Defines teletype text. Use CSS instead."
+        enabled="true"
+        name="tt"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.tt"
+   >&lt;tt&gt;${cursor}&lt;/tt&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines text that should be stylistically different from normal text"
+        enabled="true"
+        name="u"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.u"
+   >&lt;u&gt;${cursor}&lt;/u&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines an unordered list"
+        enabled="true"
+        name="ul"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.ul"
+   >&lt;ul&gt;${cursor}&lt;/ul&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="Defines a variable"
+        enabled="true"
+        name="var"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.var"
+   >&lt;var&gt;${cursor}&lt;/var&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a video or movie"
+        enabled="true"
+        name="video"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.video"
+   >&lt;video&gt;${cursor}&lt;/video&gt;</template>
+
+   <template
+        autoinsert="true"
+        context="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+        deleted="false"
+        description="(HTML5) Defines a possible line-break"
+        enabled="true"
+        name="wbr"
+        id="org.kacprzak.eclipse.django_editor.templates.html_tags.wbr"
+   >&lt;wbr&gt;${cursor}&lt;/wbr&gt;</template>
+
+</templates>

@@ -23,7 +23,7 @@ public class DjangoTagCompletionProcessor extends TemplateCompletionProcessor
 
 	@Override
 	public char[] getCompletionProposalAutoActivationCharacters() {
-		return new char[]{ '{'};
+		return new char[] {'{'};
 	}
 
 	@Override
@@ -41,31 +41,6 @@ public class DjangoTagCompletionProcessor extends TemplateCompletionProcessor
 
 	@Override
 	protected Template[] getTemplates(String contextTypeId) {
-		return TemplateManager.getDjangoTemplateStore().getTemplates();
-	}
-
-	@Override
-	protected String extractPrefix(ITextViewer viewer, int offset) {
-		int i= offset;
-		IDocument document= viewer.getDocument();
-		if (i > document.getLength())
-			return ""; //$NON-NLS-1$
-
-		try {
-//			while (i > 0) {
-//				char ch= document.getChar(i - 1);
-//				if (!Character.isJavaIdentifierPart(ch) && ch != '{' )
-//					break;
-//				i--;
-//			}
-			char ch = document.getChar(i - 1);
-			// if we are just after '{', replace it with selected tag
-			if (ch == '{')
-				return document.get(i-1, 1);
-
-			return document.get(i, offset - i);
-		} catch (BadLocationException e) {
-			return ""; //$NON-NLS-1$
-		}
+		return TemplateManager.getDjangoTemplateStore().getTemplates(contextTypeId);
 	}
 }

@@ -72,5 +72,12 @@
       </contextType>
       <include file="templates/default-filters.xml" >
       </include>
+      <contextType
+            class="org.kacprzak.eclipse.django_editor.templates.DjangoContextType"
+            id="org.kacprzak.eclipse.django_editor.templates.contextType.html_tag"
+            name="HTML Tag">
+      </contextType>
+      <include file="templates/default-html-tags.xml" >
+      </include>
    </extension>
 </plugin>

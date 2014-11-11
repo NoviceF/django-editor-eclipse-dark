@@ -164,12 +164,3 @@ class DjangoOutlineProvider implements ITreeContentProvider {
 
 }
 
-class DjLabelProvider extends LabelProvider {
-	public DjLabelProvider() {
-		super();
-	}
-	public Image getImage(Object element) {
-		return ((DjDocTag) element).image;
-	}
-	
-}

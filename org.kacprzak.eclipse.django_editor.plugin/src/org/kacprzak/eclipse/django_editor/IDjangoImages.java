@@ -4,6 +4,7 @@ public interface IDjangoImages {
 
 	public static final String TAG_IMAGE = "icons/django_tag.gif";
 	public static final String FILTER_IMAGE = "icons/django_filter.gif";
+	public static final String HTML_TAG_IMAGE = "icons/outl_html_tag.gif";
 
 	public static final String OUTL_HTML_TAG_IMAGE = "icons/outl_html_tag.gif";
 	public static final String OUTL_HTML_TAG_END_IMAGE = "icons/outl_html_tag_end.gif";

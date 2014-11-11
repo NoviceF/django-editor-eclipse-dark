@@ -1,6 +1,3 @@
-/*
- * Created on Oct 11, 2004
- */
 package org.kacprzak.eclipse.django_editor.editors.format;
 
 /**

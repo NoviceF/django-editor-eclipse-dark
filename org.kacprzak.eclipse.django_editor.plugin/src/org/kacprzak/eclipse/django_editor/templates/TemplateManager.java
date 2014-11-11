@@ -42,6 +42,7 @@ public class TemplateManager {
         	contextTypeRegistry = new ContributionContextTypeRegistry();
         	contextTypeRegistry.addContextType(DjangoContextType.DJANGO_CONTEXT_TYPE_TAG);
         	contextTypeRegistry.addContextType(DjangoContextType.DJANGO_CONTEXT_TYPE_FILTER);
+        	contextTypeRegistry.addContextType(DjangoContextType.HTML_CONTEXT_TYPE_TAG);
         }
     	return contextTypeRegistry;
     }
