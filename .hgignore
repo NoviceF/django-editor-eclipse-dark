@@ -13,3 +13,5 @@ syntax: regexp
 ^org\.kacprzak\.eclipse\.django_editor\.plugin/NewCopyOfDjangoOutlineProvider\.java$
 syntax: regexp
 ^org\.kacprzak\.eclipse\.django_editor\.plugin/src/org/kacprzak/eclipse/django_editor/editors/outline/OLD_CopyOfDjangoContentOutlinePage\.java$
+syntax: regexp
+^org\.kacprzak\.eclipse\.django_editor\.plugin/src/org/kacprzak/eclipse/django_editor/editors/completion/old$
