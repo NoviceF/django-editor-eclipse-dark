@@ -10,7 +10,7 @@ import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 
-public class ZmkCompletionProposal implements ICompletionProposal, ICompletionProposalExtension6 {
+public class DjangoExtCompletionProposal implements ICompletionProposal, ICompletionProposalExtension6 {
 
 	/** The string to be displayed in the completion proposal popup. */
 	private String fDisplayString;
@@ -44,7 +44,7 @@ public class ZmkCompletionProposal implements ICompletionProposal, ICompletionPr
 	 * @param contextInformation the context information associated with this proposal
 	 * @param additionalProposalInfo the additional information associated with this proposal
 	 */
-	public ZmkCompletionProposal(String replacementString, int replacementOffset, int replacementLength, 
+	public DjangoExtCompletionProposal(String replacementString, int replacementOffset, int replacementLength, 
 								 int cursorPosition, Image image, 
 								 String displayString, String displayDescription, 
 								 IContextInformation contextInformation, String additionalProposalInfo) {

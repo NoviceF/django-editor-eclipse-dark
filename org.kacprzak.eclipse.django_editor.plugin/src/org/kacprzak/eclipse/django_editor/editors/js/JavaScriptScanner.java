@@ -35,7 +35,7 @@ public class JavaScriptScanner extends AbsDjRuleBasedScanner implements IJavaScr
 		IToken resword = colorProvider.getToken(IDjangoPrefs.JSKEYWORD2_COLOR, IDjangoPrefs.JSKEYWORD2_STYLE);
 		IToken number  = colorProvider.getToken(IDjangoPrefs.JSNUMBER_COLOR, IDjangoPrefs.JSNUMBER_STYLE);
 		IToken operator  = colorProvider.getToken(IDjangoPrefs.JSOPERATOR_COLOR, IDjangoPrefs.JSOPERATOR_STYLE);
-		IToken selector  = colorProvider.getToken(IDjangoPrefs.JQSELECTOR_COLOR, IDjangoPrefs.JQSELECTOR_STYLE);
+//		IToken selector  = colorProvider.getToken(IDjangoPrefs.JQSELECTOR_COLOR, IDjangoPrefs.JQSELECTOR_STYLE);
 
 		List<IRule> rules = new ArrayList<IRule>();
 		rules.add(new EndOfLineRule("//", comment));

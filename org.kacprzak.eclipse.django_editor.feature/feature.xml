@@ -2,17 +2,19 @@
 <feature
       id="org.kacprzak.eclipse.django.feature"
       label="Django Templates Editor"
-      version="1.4.0.qualifier"
+      version="1.4.1.qualifier"
       provider-name="Zbigniew Kacprzak">
 
    <description url="http://eclipse.kacprzak.org">
       Django Templates Editor.
-This version covers syntax coloring:
+Syntax coloring:
 - Django tags, variables, filters
 - HTML tags
-- Inner JavaScript
+- Inner JavaScript (with jQuery simple helpers)
 - Inner CSS
-Additionally deliveres Django tags as templates (Ctrl+space)
+More:
+- Content Assist (Ctrl+space)
+- Outline View
    </description>
 
    <copyright url="http://eclipse.kacprzak.org/django/copyright.html">

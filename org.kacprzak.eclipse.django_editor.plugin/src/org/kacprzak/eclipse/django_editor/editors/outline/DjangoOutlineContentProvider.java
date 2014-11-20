@@ -19,14 +19,12 @@ import org.eclipse.jface.text.DefaultPositionUpdater;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IPositionUpdater;
 import org.eclipse.jface.viewers.ITreeContentProvider;
-import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 
 /**
  */
-class DjangoOutlineProvider implements ITreeContentProvider {
+class DjangoOutlineContentProvider implements ITreeContentProvider {
 	
 	private final static String SEGMENTS = "__django_editor_segments"; //$NON-NLS-1$
 	private IPositionUpdater fPositionUpdater = new DefaultPositionUpdater(SEGMENTS);
@@ -36,10 +34,13 @@ class DjangoOutlineProvider implements ITreeContentProvider {
 	
 	private List<DjDocTag> fContent = new ArrayList<DjDocTag>();
 
-	public DjangoOutlineProvider(IDocumentProvider provider, Object iInput)
+	public DjangoOutlineContentProvider(IDocumentProvider provider, Object iInput)
 	{
 		super();
 		fDocumentProvider = provider;
+		
+		// fix bug 251682 - auto-expand outline view
+//		fOutlineViewer.setAutoExpandLevel(TreeViewer.ALL_LEVELS);
 		fInput = iInput;
 	}
 	
@@ -123,26 +124,6 @@ class DjangoOutlineProvider implements ITreeContentProvider {
 				(new DjangoOutlineDocumentParser(fContent)).parseDocument(document);
 			}
 		}
-//		if (oldInput != null) {
-//			IDocument document = fDocumentProvider.getDocument(oldInput);
-//			if (document != null) {
-//				try {
-//					document.removePositionCategory(SEGMENTS);
-//				} catch (BadPositionCategoryException x) { }
-//				document.removePositionUpdater(fPositionUpdater);
-//			}
-//		}
-//
-//		fContent.clear();
-//
-//		if (newInput != null) {
-//			IDocument document = fDocumentProvider.getDocument(newInput);
-//			if (document != null) {
-//				//document.addPositionCategory(SEGMENTS);
-//				//document.addPositionUpdater(fPositionUpdater);
-//				parseDocument(document);
-//			}
-//		}
 	}
 
 	/*

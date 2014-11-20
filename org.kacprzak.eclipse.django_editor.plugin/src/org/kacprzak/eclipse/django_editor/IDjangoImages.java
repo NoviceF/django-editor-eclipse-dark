@@ -13,6 +13,7 @@ public interface IDjangoImages {
 	public static final String OUTL_DJ_VAR_IMAGE = "icons/outl_django_var.gif";
 	public static final String OUTL_CSS_IMAGE = "icons/outl_css.gif";
 	public static final String OUTL_JS_IMAGE = "icons/outl_js.gif";
+	public static final String OUTL_JQUERY_IMAGE = "icons/outl_jquery.gif";
 	
 	public final static String[] ALL_KNOWN_IMAGES = new String[] {
     	TAG_IMAGE,
@@ -25,5 +26,6 @@ public interface IDjangoImages {
     	OUTL_DJ_VAR_IMAGE,
     	OUTL_CSS_IMAGE,
     	OUTL_JS_IMAGE,
+    	OUTL_JQUERY_IMAGE,
     };
 }

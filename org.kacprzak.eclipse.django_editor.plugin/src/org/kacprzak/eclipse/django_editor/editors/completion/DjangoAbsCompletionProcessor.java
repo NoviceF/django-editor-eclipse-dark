@@ -23,28 +23,39 @@ import org.kacprzak.eclipse.django_editor.IDjangoImages;
 import org.kacprzak.eclipse.django_editor.templates.DjangoContextType;
 import org.kacprzak.eclipse.django_editor.templates.TemplateManager;
 
-public class ZmkCompletionProcessor implements IContentAssistProcessor {
+public abstract class DjangoAbsCompletionProcessor implements IContentAssistProcessor {
 
 	String contextTypeId = DjangoContextType.DJANGO_CONTEXT_TYPE_TAG;
 	String contextImageId = IDjangoImages.TAG_IMAGE;
 	String prefixChar = "";
-
-	@Override
-	public char[] getCompletionProposalAutoActivationCharacters() {
-		return new char[] {'<', '{'};
-	}
+	boolean alternateTemplate = false;
 
 	protected boolean inActivationCharacters(char ch) {
-		for (char aCh : getCompletionProposalAutoActivationCharacters()) {
+		char[] chArr = getCompletionProposalAutoActivationCharacters();
+		if (chArr == null)
+			return false;
+		for (char aCh : chArr) {
 			if (aCh == ch)
 				return true;
 		}
 		return false;
 	}
-	@Override
-	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer, int offset) {
+	
+	protected void setDefaultContextAndImage() {
 		contextTypeId = DjangoContextType.DJANGO_CONTEXT_TYPE_TAG;
 		contextImageId = IDjangoImages.TAG_IMAGE;
+		alternateTemplate = false;
+	};
+
+	protected abstract boolean setAlternateContextAndImage(char ch);
+	
+	protected boolean shouldEatActivationCharacter(char ch) {
+		return true;
+	}
+	
+	@Override
+	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer, int offset) {
+		setDefaultContextAndImage();
 		prefixChar = "";
 		
 		IDocument doc = viewer.getDocument();
@@ -54,13 +65,11 @@ public class ZmkCompletionProcessor implements IContentAssistProcessor {
 		if (prefix.length() > 0) {
 			char ch = prefix.charAt(0);
 			if (inActivationCharacters(ch)) {
-				prefixChar = "" + ch;
+				if (shouldEatActivationCharacter(ch))
+					prefixChar = "" + ch;
 				prefix = prefix.substring(1);
 			}
-			if (ch == '<') {
-				contextTypeId = DjangoContextType.HTML_CONTEXT_TYPE_TAG;
-				contextImageId = IDjangoImages.HTML_TAG_IMAGE;
-			}
+			alternateTemplate = setAlternateContextAndImage(ch);
 		}
 		int loff = countLineOffset(doc, offset) - prefix.length() - prefixChar.length();
 		
@@ -73,26 +82,45 @@ public class ZmkCompletionProcessor implements IContentAssistProcessor {
 		return proposals; 
 	}
 
-	private String getTokenName(IDocument doc, int documentOffset) {
-		StringBuffer buf = new StringBuffer(); 				// Use string buffer to collect characters
-		while (true) {
-			try {
-				char c = doc.getChar(--documentOffset); 	// Read character backwards
-				if (c == '>' || c == '}' || Character.isWhitespace(c)) 	// This was not the start of a tag
-					return "";
-				
-				buf.append(c);				// Collect character
-				
-				// Start of tag. Return qualifier
-				if (inActivationCharacters(c))//if (c == '<' || c == '{')
-					return buf.reverse().toString();
-			} catch (BadLocationException e) {
-				return ""; // Document start reached, no tag found
+//	protected String getTokenName(IDocument doc, int documentOffset) {
+//		StringBuffer buf = new StringBuffer(); 				// Use string buffer to collect characters
+//		while (true) {
+//			try {
+//				char c = doc.getChar(--documentOffset); 	// Read character backwards
+//				if (c == '>' || c == '}' || Character.isWhitespace(c)) 	// This was not the start of a tag
+//					return "";
+//				
+//				buf.append(c);				// Collect character
+//				
+//				// Start of tag. Return qualifier
+//				if (inActivationCharacters(c))//if (c == '<' || c == '{')
+//					return buf.reverse().toString();
+//			} catch (BadLocationException e) {
+//				return ""; // Document start reached, no tag found
+//			}
+//		}
+//	}
+	
+	protected String getTokenName(IDocument document, int offset) {
+		int i= offset;
+		if (i > document.getLength())
+			return ""; //$NON-NLS-1$
+
+		try {
+			while (i > 0) {
+				char ch= document.getChar(i - 1);
+				if (!Character.isJavaIdentifierPart(ch) && !inActivationCharacters(ch))
+					break;
+				i--;
 			}
+
+			return document.get(i, offset - i);
+		} catch (BadLocationException e) {
+			return ""; //$NON-NLS-1$
 		}
 	}
 	
-	protected int countLineOffset(IDocument doc, int documentOffset) {
+	private int countLineOffset(IDocument doc, int documentOffset) {
 		int lineOffset = documentOffset;
 		char ch = 0;
 		while (lineOffset >= 0) {
@@ -107,7 +135,7 @@ public class ZmkCompletionProcessor implements IContentAssistProcessor {
 		return documentOffset-lineOffset-prefixChar.length();
 	}
 	
-	private void computeProposals(String qualifier, int documentOffset, int lineOffset, List<ICompletionProposal> propList) { 
+	protected void computeProposals(String qualifier, int documentOffset, int lineOffset, List<ICompletionProposal> propList) { 
 		int replacementLength = qualifier.length() + prefixChar.length();
 
 		String sp = "";
@@ -121,7 +149,7 @@ public class ZmkCompletionProcessor implements IContentAssistProcessor {
 		}
 	}
 	
-	private ICompletionProposal createProposal(Template template, int documentOffset, int replacementLength, String sp) {
+	protected ICompletionProposal createProposal(Template template, int documentOffset, int replacementLength, String sp) {
 		String tplName = template.getName();
 		String tplDescr = template.getDescription();
 		String tplPattern = template.getPattern();
@@ -150,8 +178,8 @@ public class ZmkCompletionProcessor implements IContentAssistProcessor {
     	
         IContextInformation contextInfo = new ContextInformation(tplDescr, tplName + " Tag");
 
-        ZmkCompletionProposal proposal = new 
-        		ZmkCompletionProposal(tplPattern, 
+        DjangoExtCompletionProposal proposal = new 
+        		DjangoExtCompletionProposal(tplPattern, 
 		        				   documentOffset - replacementLength, 
 		        				   replacementLength, 
 		        				   cursorPosition, 

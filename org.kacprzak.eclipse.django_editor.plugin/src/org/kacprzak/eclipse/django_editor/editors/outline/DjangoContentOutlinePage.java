@@ -51,7 +51,7 @@ public class DjangoContentOutlinePage extends ContentOutlinePage {
 
 		TreeViewer viewer= getTreeViewer();
 		//viewer.setContentProvider(new ContentProvider());
-		viewer.setContentProvider(new DjangoOutlineProvider(fDocumentProvider, fInput));
+		viewer.setContentProvider(new DjangoOutlineContentProvider(fDocumentProvider, fInput));
 		viewer.setLabelProvider(new DjLabelProvider());
 		viewer.addSelectionChangedListener(this);
 

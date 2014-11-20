@@ -2,6 +2,7 @@ package org.kacprzak.eclipse.django_editor.editors;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.ITextDoubleClickStrategy;
+import org.eclipse.jface.text.ITextHover;
 import org.eclipse.jface.text.contentassist.ContentAssistant;
 import org.eclipse.jface.text.contentassist.IContentAssistant;
 import org.eclipse.jface.text.formatter.ContentFormatter;
@@ -13,11 +14,10 @@ import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 import org.eclipse.swt.graphics.RGB;
 import org.kacprzak.eclipse.django_editor.IDjangoPartitions;
-import org.kacprzak.eclipse.django_editor.editors.completion.DjAndHtmlCompletionProcessor;
-import org.kacprzak.eclipse.django_editor.editors.completion.DjHtCompletionProcessor;
+import org.kacprzak.eclipse.django_editor.editors.completion.DjangoCssCompletionProcessor;
 import org.kacprzak.eclipse.django_editor.editors.completion.DjangoFilterCompletionProcessor;
-import org.kacprzak.eclipse.django_editor.editors.completion.DjangoTagCompletionProcessor;
-import org.kacprzak.eclipse.django_editor.editors.completion.ZmkCompletionProcessor;
+import org.kacprzak.eclipse.django_editor.editors.completion.DjangoHtmlCompletionProcessor;
+import org.kacprzak.eclipse.django_editor.editors.completion.DjangoJavaScriptCompletionProcessor;
 import org.kacprzak.eclipse.django_editor.editors.css.CssScanner;
 import org.kacprzak.eclipse.django_editor.editors.dj.DjangoTagScanner;
 import org.kacprzak.eclipse.django_editor.editors.dj.DjangoVariableScanner;
@@ -58,6 +58,7 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 	public String[] getConfiguredContentTypes(ISourceViewer sourceViewer) {
 		return IDjangoPartitions.CONFIGURED_CONTENT_TYPES;
 	}
+	
 	public ITextDoubleClickStrategy getDoubleClickStrategy(ISourceViewer sourceViewer, String contentType) {
 		if (doubleClickStrategy == null)
 			doubleClickStrategy = new DjangoDoubleClickStrategy();
@@ -83,35 +84,45 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 		ContentAssistant assistant = new ContentAssistant();
 
 		//assistant.setDocumentPartitioning(IDjangoPartitions.CONFIGURED_CONTENT_TYPES);
-		
+
 		// default templates
 //		assistant.setContentAssistProcessor(new DjAndHtmlCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
-		assistant.setContentAssistProcessor(new ZmkCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+		assistant.setContentAssistProcessor(new DjangoHtmlCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 //		assistant.setContentAssistProcessor(new HtmlTagCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 //		assistant.setContentAssistProcessor(new DjHtCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 //		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 		assistant.setContentAssistProcessor(new DjangoFilterCompletionProcessor(), IDjangoPartitions.DJANGO_VARIABLE);
 
 		assistant.setContentAssistProcessor(new DjangoFilterCompletionProcessor(), IDjangoPartitions.DJANGO_TAG);
-		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.HTML_TAG);
-		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.JAVA_SCRIPT);
-		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.HTML_CSS);
+		assistant.setContentAssistProcessor(new DjangoHtmlCompletionProcessor(), IDjangoPartitions.HTML_TAG);
+		assistant.setContentAssistProcessor(new DjangoJavaScriptCompletionProcessor(), IDjangoPartitions.JAVA_SCRIPT);
+		assistant.setContentAssistProcessor(new DjangoCssCompletionProcessor(), IDjangoPartitions.HTML_CSS);
+//		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.HTML_TAG);
+//		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.JAVA_SCRIPT);
+//		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.HTML_CSS);
 
 		assistant.enableAutoInsert(true);
 		assistant.enableAutoActivation(true);
 		assistant.setAutoActivationDelay(100);
 
 		assistant.enableColoredLabels(true);
-//		assistant.setStatusLineVisible(true);
+		assistant.setStatusLineVisible(true);
+		
 //		assistant.setProposalPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
 //		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
 //		assistant.setContextInformationPopupBackground(colorProvider.getColor(new RGB(0, 0, 0)));
 
 
-		assistant.setProposalSelectorBackground(colorProvider.getColor(new RGB(255, 255, 225)));
+		assistant.setProposalSelectorBackground(colorProvider.getColor(new RGB(255, 255, 250)));
 
 		return assistant;
 	}
+	
+	public ITextHover getTextHover(ISourceViewer sourceViewer, String contentType) {
+//		System.out.println("getTextHover; contentType: " + contentType);
+		return null;//new DefaultTextHover(sourceViewer);
+	}
+	
 	protected DjangoColoredScanner getDefaultScanner() {
 		if (defaultScanner == null) {
 			defaultScanner = new DjangoColoredScanner(colorProvider,

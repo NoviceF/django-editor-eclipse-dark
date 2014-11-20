@@ -1089,18 +1089,19 @@
         enabled="true"
         name="table_ext"
         id="org.kacprzak.eclipse.django_editor.templates.html_tags.table_ext"
-   >&lt;table&gt;
+   >&lt;table id="${cursor}"&gt;
+  &lt;caption&gt;&lt;/caption&gt;
   &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;/th&gt;
-    &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;/td&gt;
-    &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;</template>
 

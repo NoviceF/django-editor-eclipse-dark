@@ -7,8 +7,6 @@ import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.MultiLineRule;
 import org.eclipse.jface.text.rules.SingleLineRule;
-import org.eclipse.jface.text.rules.Token;
-import org.kacprzak.eclipse.django_editor.IDjangoPartitions;
 import org.kacprzak.eclipse.django_editor.editors.AbsDjRuleBasedScanner;
 import org.kacprzak.eclipse.django_editor.editors.ColorProvider;
 import org.kacprzak.eclipse.django_editor.editors.dj.DjangoTagRule;

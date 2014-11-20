@@ -11,19 +11,13 @@
 
 package org.kacprzak.eclipse.django_editor.editors.outline;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.BadPositionCategoryException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.Position;
-import org.eclipse.swt.graphics.Image;
-import org.kacprzak.eclipse.django_editor.DjangoPlugin;
-import org.kacprzak.eclipse.django_editor.IDjangoImages;
 import org.kacprzak.eclipse.django_editor.IDjangoPartitions;
-import org.kacprzak.eclipse.django_editor.editors.dj.IDjangoSyntax;
 import org.kacprzak.eclipse.django_editor.editors.outline.DjDocTag.TokenType;
 
 /**
