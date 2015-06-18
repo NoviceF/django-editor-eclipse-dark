@@ -36,18 +36,20 @@ class DjangoOutlineDocumentParser {
 		DjDocTag aCurrent = null;
 		String[] docPosCats = document.getPositionCategories();
 		for (String dPosCat : docPosCats) {
-			//fContent.add(new Segment("POSCAT-name: " + dPosCat, new Position(++iPos, 1)));
+			if (!dPosCat.startsWith("__content_types_category"))
+				continue;
 			try {
+				Position[] positions = document.getPositions(dPosCat);
 				// now get only "allowed" content types for given position
 				// skip all other types "unsupported" in this view
-				for (Position aPos : document.getPositions(dPosCat)) {
+				for (Position aPos : positions) {
 					String aConType, aToken;
 					int aLineNr;
 					try {
 						aConType = document.getContentType(aPos.offset);
-						if (!isConTypeSupported(aConType))
-							continue;
-//System.out.println("Content type supported: " + aConType);
+//						if (!isConTypeSupported(aConType))
+//							continue;
+//System.out.println("[" + dPosCat + "] Content type supported: " + aConType);
 						aToken = document.get(aPos.offset, aPos.length).trim();
 						if (aToken == null || aToken.isEmpty())
 							continue;
@@ -57,63 +59,13 @@ class DjangoOutlineDocumentParser {
 						continue;
 					}
 					
-					DjDocTag aTag = new DjDocTag(aConType, aToken, aLineNr, aPos);
-//System.out.println("  DjDocTag; keyword=" + aTag.keyword + "; type=" + aTag.tokType.name());
-					if (aTag.keyword.isEmpty())
-						continue;
-					switch (aTag.tokType) {
-						case START:
-							aTag.parent = aCurrent;
-							if (aCurrent != null)
-								aCurrent.children.add(aTag);
-							aCurrent = aTag;
-							break;
-							
-						case STARTEND:
-							aTag.parent = aCurrent;
-							if (aCurrent != null)
-								aCurrent.children.add(aTag);
-							aTag.posEnd = aPos;
-							break;
-							
-						case END:
-							aTag.parent = null;
-							DjDocTag aTagStart = findStartingTag(aTag, aCurrent);
-//System.out.println("  END Tag; keyword=" + aTag.keyword + ( aTagStart == null ? "" : "; starting: " + aTagStart.lineNumber));
-							if (aTagStart != null) {
-								aTag.parent = aTagStart.parent;
-								aCurrent = aTagStart.parent;
-								aTagStart.posEnd = aPos;
-							} else
-								aCurrent = null;
-							break;
-							
-						case INVALID:
-							continue;
-					}				
-					if (aTag.parent == null && aTag.tokType != TokenType.END)
-						fContent.add(aTag);
+					aCurrent = DjDocTag.addNewTag(aConType, aToken, aLineNr, aPos, fContent, aCurrent);
 				}
 			} catch (BadPositionCategoryException e) {}
 		}
 //System.out.println("\n**** END parseDocument\n");		
 	}
 
-	private DjDocTag findStartingTag(DjDocTag iTag, DjDocTag iCurrent) {
-		DjDocTag starting = iCurrent;
-		if (starting == null)
-			return null;
-		do {
-			if (starting.tokType == TokenType.START) {
-				if (starting.keyword.equals(iTag.keyword))
-					return starting;
-				if ( ("end" + starting.keyword).equals(iTag.keyword))
-					return starting;
-			}
-			starting = starting.parent;
-		} while (starting != null);
-		return null;
-	}
 	private boolean isConTypeSupported(String iConType) {
 		for (String aAllowedConType : IDjangoPartitions.OUTLINE_CONTENT_TYPES)
 			if (aAllowedConType.equals(iConType))

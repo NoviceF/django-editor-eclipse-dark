@@ -27,6 +27,7 @@ public class DjangoTagScanner extends AbsDjRuleBasedScanner {
 
 		rules.add(new SingleLineRule("\"", "\"", string, '\\'));
 		rules.add(new SingleLineRule("'", "'", string, '\\'));
+		
 		//rules.add(new WhitespaceRule(new DjangoWhitespaceDetector()));
 
 		rules.add(new DjangoTagRule(colorProvider));

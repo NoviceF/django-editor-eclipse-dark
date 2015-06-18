@@ -2,11 +2,13 @@
 <feature
       id="org.kacprzak.eclipse.django.feature"
       label="Django Templates Editor"
-      version="1.4.1.qualifier"
+      version="1.4.2.qualifier"
       provider-name="Zbigniew Kacprzak">
 
    <description url="http://eclipse.kacprzak.org">
-      Django Templates Editor.
+      Whats new
+- comments with Ctrl+/
+
 Syntax coloring:
 - Django tags, variables, filters
 - HTML tags

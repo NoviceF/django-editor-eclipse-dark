@@ -1,18 +1,34 @@
 package org.kacprzak.eclipse.django_editor.editors;
 
+import org.eclipse.jface.text.DefaultIndentLineAutoEditStrategy;
+import org.eclipse.jface.text.DefaultInformationControl;
+import org.eclipse.jface.text.DefaultTextHover;
+import org.eclipse.jface.text.IAutoEditStrategy;
 import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.IInformationControl;
+import org.eclipse.jface.text.IInformationControlCreator;
 import org.eclipse.jface.text.ITextDoubleClickStrategy;
 import org.eclipse.jface.text.ITextHover;
+import org.eclipse.jface.text.TextPresentation;
 import org.eclipse.jface.text.contentassist.ContentAssistant;
 import org.eclipse.jface.text.contentassist.IContentAssistant;
 import org.eclipse.jface.text.formatter.ContentFormatter;
 import org.eclipse.jface.text.formatter.IContentFormatter;
+import org.eclipse.jface.text.hyperlink.DefaultHyperlinkPresenter;
+import org.eclipse.jface.text.hyperlink.IHyperlinkPresenter;
 import org.eclipse.jface.text.presentation.IPresentationReconciler;
 import org.eclipse.jface.text.presentation.PresentationReconciler;
 import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
+import org.eclipse.ui.texteditor.AbstractDecoratedTextEditorPreferenceConstants;
+//import org.eclipse.ui.examples.javaeditor.java.JavaAutoIndentStrategy;
 import org.kacprzak.eclipse.django_editor.IDjangoPartitions;
 import org.kacprzak.eclipse.django_editor.editors.completion.DjangoCssCompletionProcessor;
 import org.kacprzak.eclipse.django_editor.editors.completion.DjangoFilterCompletionProcessor;
@@ -29,8 +45,12 @@ import org.kacprzak.eclipse.django_editor.preferences.IDjangoPrefs;
 /**
  * @author Zbigniew Kacprzak
 */
-public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
+public class DjangoSourceViewerConfiguration extends TextSourceViewerConfiguration {
 
+//	public final static String PREFERENCE_TAB_WIDTH= AbstractDecoratedTextEditorPreferenceConstants.EDITOR_TAB_WIDTH;
+//	public final static String EDITOR_SPACES_FOR_TABS= "spacesForTabs"; //$NON-NLS-1$
+//	public final static String SPACES_FOR_TABS= PreferenceConstants.EDITOR_SPACES_FOR_TABS;
+	
 	private PresentationReconciler reconciler;
 
 	private DjangoDoubleClickStrategy doubleClickStrategy;
@@ -59,6 +79,14 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 		return IDjangoPartitions.CONFIGURED_CONTENT_TYPES;
 	}
 	
+	/*
+	 * @see org.eclipse.jface.text.source.SourceViewerConfiguration#getAutoEditStrategies(org.eclipse.jface.text.source.ISourceViewer, java.lang.String)
+	 */
+//	public IAutoEditStrategy[] getAutoEditStrategies(ISourceViewer sourceViewer, String contentType) {
+//		IAutoEditStrategy strategy= (IDocument.DEFAULT_CONTENT_TYPE.equals(contentType) ? new JavaAutoIndentStrategy() : new DefaultIndentLineAutoEditStrategy());
+//		return new IAutoEditStrategy[] { strategy };
+//	}
+	
 	public ITextDoubleClickStrategy getDoubleClickStrategy(ISourceViewer sourceViewer, String contentType) {
 		if (doubleClickStrategy == null)
 			doubleClickStrategy = new DjangoDoubleClickStrategy();
@@ -69,13 +97,8 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 	public IContentFormatter getContentFormatter(ISourceViewer sourceViewer) {
 		ContentFormatter formatter = new ContentFormatter();
 		
-		formatter.setFormattingStrategy(new TextFormattingStrategy(), IDocument.DEFAULT_CONTENT_TYPE);
-		formatter.setFormattingStrategy(new TextFormattingStrategy(), IDjangoPartitions.DJANGO_TAG);
-		formatter.setFormattingStrategy(new TextFormattingStrategy(), IDjangoPartitions.DJANGO_VARIABLE);
-		formatter.setFormattingStrategy(new TextFormattingStrategy(), IDjangoPartitions.HTML_TAG);
-		formatter.setFormattingStrategy(new TextFormattingStrategy(), IDjangoPartitions.JAVA_SCRIPT);
-		formatter.setFormattingStrategy(new TextFormattingStrategy(), IDjangoPartitions.HTML_CSS);
-		
+		for (String aPartition : IDjangoPartitions.CONFIGURED_CONTENT_TYPES)
+			formatter.setFormattingStrategy(new TextFormattingStrategy(), aPartition);	
 		return formatter;
 	}
 	
@@ -87,11 +110,12 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 
 		// default templates
 //		assistant.setContentAssistProcessor(new DjAndHtmlCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
-		assistant.setContentAssistProcessor(new DjangoHtmlCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
+		assistant.setContentAssistProcessor(new DjangoHtmlCompletionProcessor(), IDjangoPartitions.DJANGO_DEFAULT);
 //		assistant.setContentAssistProcessor(new HtmlTagCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 //		assistant.setContentAssistProcessor(new DjHtCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 //		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDocument.DEFAULT_CONTENT_TYPE);
 		assistant.setContentAssistProcessor(new DjangoFilterCompletionProcessor(), IDjangoPartitions.DJANGO_VARIABLE);
+		assistant.setContentAssistProcessor(new DjangoFilterCompletionProcessor(), IDjangoPartitions.DJANGO_FILTER);
 
 		assistant.setContentAssistProcessor(new DjangoFilterCompletionProcessor(), IDjangoPartitions.DJANGO_TAG);
 		assistant.setContentAssistProcessor(new DjangoHtmlCompletionProcessor(), IDjangoPartitions.HTML_TAG);
@@ -101,6 +125,21 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 //		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.JAVA_SCRIPT);
 //		assistant.setContentAssistProcessor(new DjangoTagCompletionProcessor(), IDjangoPartitions.HTML_CSS);
 
+//    	DJANGO_DEFAULT
+//		, DJANGO_COMMENT
+//    	, DJANGO_TAG
+//		, DJANGO_FILTER
+//		, DJANGO_VARIABLE
+//		, JAVA_SCRIPT
+//		, HTML_COMMENT
+//		, HTML_TAG
+//		, HTML_SCRIPTLET
+//		, HTML_DOCTYPE
+//		, HTML_DIRECTIVE
+//		, HTML_CSS
+
+		assistant.setInformationControlCreator(getInformationControlCreator(sourceViewer));
+		
 		assistant.enableAutoInsert(true);
 		assistant.enableAutoActivation(true);
 		assistant.setAutoActivationDelay(100);
@@ -108,8 +147,10 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 		assistant.enableColoredLabels(true);
 		assistant.setStatusLineVisible(true);
 		
-//		assistant.setProposalPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
-//		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
+		assistant.setProposalPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
+//		assistant.setProposalPopupOrientation(IContentAssistant.PROPOSAL_OVERLAY);
+		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_BELOW);
+//		assistant.setContextInformationPopupOrientation(IContentAssistant.CONTEXT_INFO_ABOVE);
 //		assistant.setContextInformationPopupBackground(colorProvider.getColor(new RGB(0, 0, 0)));
 
 
@@ -118,11 +159,66 @@ public class DjangoSourceViewerConfiguration extends SourceViewerConfiguration {
 		return assistant;
 	}
 	
-	public ITextHover getTextHover(ISourceViewer sourceViewer, String contentType) {
-//		System.out.println("getTextHover; contentType: " + contentType);
-		return null;//new DefaultTextHover(sourceViewer);
-	}
+//	public IInformationControlCreator getInformationControlCreator(ISourceViewer sourceViewer) {
+//
+//		return new IInformationControlCreator() {			
+//
+//			public IInformationControl createInformationControl(Shell parent) {
+//								
+//				final DefaultInformationControl.IInformationPresenter
+//				   presenter = new DefaultInformationControl.IInformationPresenter() {
+//				      public String updatePresentation(Display display, 
+//				    		  						   String infoText,
+//				    		  						   TextPresentation presentation, 
+//				    		  						   int maxWidth, 
+//				    		  						   int maxHeight) 
+//				      {
+//				         int start = -1;
+//
+//				         // Loop over all characters of information text
+//				         for (int i = 0; i < infoText.length(); i++) {
+//				            switch (infoText.charAt(i)) {
+//				               case '<' :
+//
+//				                  // Remember start of tag
+//				                  start = i;
+//				                  break;
+//				               case '>' :
+//				                  if (start >= 0) {
+//
+//				                    // We have found a tag and create a new style range
+//				                    StyleRange range = 
+//				                       new StyleRange(start, i - start + 1, null, null, SWT.BOLD);
+//
+//				                    // Add this style range to the presentation
+//				                    presentation.addStyleRange(range);
+//
+//				                    // Reset tag start indicator
+//				                    start = -1;
+//				                  }
+//				                  break;
+//				         }
+//				      }
+//				      // Return the information text
+//				      return infoText;
+//				   }
+//				};
+//				return new DefaultInformationControl(parent, presenter);
+//			} // createInformationControl
+//		}; // new IInformationControlCreator
+//	} // getInformationControlCreator
 	
+//	@Override
+//	public ITextHover getTextHover(ISourceViewer sourceViewer, String contentType) {
+//		System.out.println("getTextHover; contentType: " + contentType);
+//		return new DefaultTextHover(sourceViewer);
+//	}
+	
+//	@Override
+//	public IHyperlinkPresenter getHyperlinkPresenter(ISourceViewer sourceViewer) {
+//		return new DefaultHyperlinkPresenter(new RGB(0, 0, 255));
+//	}
+
 	protected DjangoColoredScanner getDefaultScanner() {
 		if (defaultScanner == null) {
 			defaultScanner = new DjangoColoredScanner(colorProvider,

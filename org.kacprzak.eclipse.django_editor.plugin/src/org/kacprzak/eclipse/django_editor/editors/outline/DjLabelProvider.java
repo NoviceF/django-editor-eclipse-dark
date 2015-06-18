@@ -14,6 +14,7 @@ class DjLabelProvider extends StyledCellLabelProvider {
         text.append(element.keyword, StyledString.COUNTER_STYLER);
         text.append("  [" + element.description + "]", StyledString.QUALIFIER_STYLER);
         text.append(" - line " + element.lineNumber, StyledString.DECORATIONS_STYLER);
+        text.append(" (" + element.conType + ")", StyledString.DECORATIONS_STYLER);
         cell.setText(text.toString());
         cell.setStyleRanges(text.getStyleRanges());
         super.update(cell);

@@ -11,12 +11,14 @@
 
 package org.kacprzak.eclipse.django_editor.editors.outline;
 
+import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
@@ -26,7 +28,7 @@ import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
  */
 public class DjangoContentOutlinePage extends ContentOutlinePage {
 
-	protected Object fInput;
+	protected IEditorInput fEditorInput;
 	protected IDocumentProvider fDocumentProvider;
 	protected ITextEditor fTextEditor;
 
@@ -51,12 +53,14 @@ public class DjangoContentOutlinePage extends ContentOutlinePage {
 
 		TreeViewer viewer= getTreeViewer();
 		//viewer.setContentProvider(new ContentProvider());
-		viewer.setContentProvider(new DjangoOutlineContentProvider(fDocumentProvider, fInput));
+		viewer.setContentProvider(new DjangoOutlineContentProvider(fDocumentProvider, fEditorInput));
 		viewer.setLabelProvider(new DjLabelProvider());
 		viewer.addSelectionChangedListener(this);
+		
+//		fTextEditor.getSelectionProvider().addSelectionChangedListener(this);
 
-		if (fInput != null) {
-			viewer.setInput(fInput);
+		if (fEditorInput != null) {
+			viewer.setInput(fEditorInput);
 			viewer.expandAll();
 		}
 	}
@@ -66,6 +70,15 @@ public class DjangoContentOutlinePage extends ContentOutlinePage {
 	 */
 	public void selectionChanged(SelectionChangedEvent event) {
 
+		if (event.getSelection() instanceof TextSelection) {
+			TextSelection selection = (TextSelection) event.getSelection();
+			if (selection.getLength() > 0)
+				return;
+			
+//			System.out.println("DjangoContentOutlinePage.selectionChanged; selection=" + selection.getLength());
+			return;
+		}
+		
 		super.selectionChanged(event);
 
 		ISelection selection= event.getSelection();
@@ -96,8 +109,8 @@ public class DjangoContentOutlinePage extends ContentOutlinePage {
 	 * 
 	 * @param input the input of this outline page
 	 */
-	public void setInput(Object input) {
-		fInput = input;
+	public void setInput(IEditorInput input) {
+		fEditorInput = input;
 		update();
 	}
 	
@@ -111,10 +124,15 @@ public class DjangoContentOutlinePage extends ContentOutlinePage {
 			Control control= viewer.getControl();
 			if (control != null && !control.isDisposed()) {
 				control.setRedraw(false);
-				viewer.setInput(fInput);
+				viewer.setInput(fEditorInput);
 				viewer.expandAll();
 				control.setRedraw(true);
 			}
 		}
 	}
+
+//	@Override
+//	public void propertyChanged(Object source, int propId) {
+//		System.out.println("DjangoContentOutlinePage.propertyChanged; source=" + source + "; propId=" + propId);
+//	}
 }

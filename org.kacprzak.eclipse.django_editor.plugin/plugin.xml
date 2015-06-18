@@ -9,7 +9,7 @@
    <extension point="org.eclipse.ui.editors">
       <editor
             class="org.kacprzak.eclipse.django_editor.editors.DjangoEditor"
-            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            contributorClass="org.kacprzak.eclipse.django_editor.actions.DjangoEditorActionContributor"
             default="true"
             extensions="html,htm"
             icon="icons/django.gif"
@@ -79,5 +79,49 @@
       </contextType>
       <include file="templates/default-html-tags.xml" >
       </include>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Toggle comment the selected lines"
+            id="org.kacprzak.eclipse.django_editor.contributions.togglecomment"
+            name="Toggle Comment">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.kacprzak.eclipse.django_editor.contributions.togglecomment"
+            contextId="org.kacprzak.eclipse.django_editor.context.djangoEditorScope"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+/">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            id="org.kacprzak.eclipse.django_editor.context.djangoEditorScope"
+            name="Editing Django Source"
+            parentId="org.eclipse.ui.textEditorScope">
+      </context>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.kacprzak.eclipse.django_editor.actions.DjangoToggleLineCommentHandler"
+            commandId="org.kacprzak.eclipse.django_editor.contributions.togglecomment">
+         <activeWhen>
+            <with
+                  variable="activeContexts">
+               <iterate
+                     ifEmpty="false"
+                     operator="or">
+                  <equals
+                        value="org.kacprzak.eclipse.django_editor.context.djangoEditorScope">
+                  </equals>
+               </iterate>
+            </with>
+         </activeWhen>
+      </handler>
    </extension>
 </plugin>

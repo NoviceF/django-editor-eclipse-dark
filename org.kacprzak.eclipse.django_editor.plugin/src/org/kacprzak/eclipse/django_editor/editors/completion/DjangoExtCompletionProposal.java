@@ -1,16 +1,21 @@
 package org.kacprzak.eclipse.django_editor.editors.completion;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.jface.text.contentassist.ICompletionProposalExtension5;
 import org.eclipse.jface.text.contentassist.ICompletionProposalExtension6;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 
-public class DjangoExtCompletionProposal implements ICompletionProposal, ICompletionProposalExtension6 {
+public class DjangoExtCompletionProposal implements ICompletionProposal, 
+													ICompletionProposalExtension5,
+													ICompletionProposalExtension6 
+{
 
 	/** The string to be displayed in the completion proposal popup. */
 	private String fDisplayString;
@@ -127,5 +132,10 @@ public class DjangoExtCompletionProposal implements ICompletionProposal, IComple
         	text.append(fDisplayDescription, StyledString.QUALIFIER_STYLER);
         }
 		return text;
+	}
+
+	@Override
+	public Object getAdditionalProposalInfo(IProgressMonitor monitor) {
+		return fAdditionalProposalInfo;
 	}
 }

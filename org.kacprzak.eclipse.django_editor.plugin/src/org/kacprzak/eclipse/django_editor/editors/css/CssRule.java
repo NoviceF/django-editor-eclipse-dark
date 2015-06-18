@@ -49,7 +49,7 @@ public class CssRule implements IPredicateRule {
 				return propToken;
 			} else if (c == ';') {
 				return valueToken;
-			} else if (c == '{') { // || c=='}') {
+			} else if (c == '{' || c == '}') {
 				return selectorToken;
 			} else {
 				// Check for end of line since it can be used to terminate the pattern.

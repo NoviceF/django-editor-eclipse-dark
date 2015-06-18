@@ -82,25 +82,6 @@ public abstract class DjangoAbsCompletionProcessor implements IContentAssistProc
 		return proposals; 
 	}
 
-//	protected String getTokenName(IDocument doc, int documentOffset) {
-//		StringBuffer buf = new StringBuffer(); 				// Use string buffer to collect characters
-//		while (true) {
-//			try {
-//				char c = doc.getChar(--documentOffset); 	// Read character backwards
-//				if (c == '>' || c == '}' || Character.isWhitespace(c)) 	// This was not the start of a tag
-//					return "";
-//				
-//				buf.append(c);				// Collect character
-//				
-//				// Start of tag. Return qualifier
-//				if (inActivationCharacters(c))//if (c == '<' || c == '{')
-//					return buf.reverse().toString();
-//			} catch (BadLocationException e) {
-//				return ""; // Document start reached, no tag found
-//			}
-//		}
-//	}
-	
 	protected String getTokenName(IDocument document, int offset) {
 		int i= offset;
 		if (i > document.getLength())
@@ -176,8 +157,12 @@ public abstract class DjangoAbsCompletionProcessor implements IContentAssistProc
 		if (cursorPosition < 0)
 			cursorPosition = tplPattern.length();
     	
-        IContextInformation contextInfo = new ContextInformation(tplDescr, tplName + " Tag");
+        IContextInformation contextInfo = new ContextInformation(tplName, tplName + " Tag");
 
+
+		String tplInfo = template.getName() + "\n\n" +
+						 template.getDescription()  + "\n\n" +
+						 template.getPattern();
         DjangoExtCompletionProposal proposal = new 
         		DjangoExtCompletionProposal(tplPattern, 
 		        				   documentOffset - replacementLength, 
@@ -186,7 +171,7 @@ public abstract class DjangoAbsCompletionProcessor implements IContentAssistProc
 		        				   getImage(template), 
 		        				   tplName, tplDescr, 
 		        				   contextInfo,//IContextInformation contextInformation, 
-		        				   "String additionalProposalInfo"//String additionalProposalInfo)
+		        				   tplInfo//String additionalProposalInfo)
         						  );
         return proposal;
 	}

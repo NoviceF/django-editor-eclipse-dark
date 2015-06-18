@@ -20,28 +20,23 @@ import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IPositionUpdater;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 
 /**
  */
 class DjangoOutlineContentProvider implements ITreeContentProvider {
 	
-	private final static String SEGMENTS = "__django_editor_segments"; //$NON-NLS-1$
-	private IPositionUpdater fPositionUpdater = new DefaultPositionUpdater(SEGMENTS);
-	
 	private IDocumentProvider fDocumentProvider;
-	private Object fInput;
+	private IEditorInput fEditorInput;
 	
 	private List<DjDocTag> fContent = new ArrayList<DjDocTag>();
 
-	public DjangoOutlineContentProvider(IDocumentProvider provider, Object iInput)
+	public DjangoOutlineContentProvider(IDocumentProvider provider, IEditorInput iInput)
 	{
 		super();
 		fDocumentProvider = provider;
-		
-		// fix bug 251682 - auto-expand outline view
-//		fOutlineViewer.setAutoExpandLevel(TreeViewer.ALL_LEVELS);
-		fInput = iInput;
+		fEditorInput = iInput;
 	}
 	
 	/*
@@ -50,16 +45,9 @@ class DjangoOutlineContentProvider implements ITreeContentProvider {
 	public Object[] getChildren(Object element) {
 		if (element instanceof DjDocTag)
 			return ((DjDocTag)element).children.toArray();
-		if (element == fInput)
+		if (element == fEditorInput)
 			return fContent.toArray();
 		return new Object[0];
-//		if (element == editorInput) {
-//			if (rootElement == null) return new Object[0];
-//			return getElements(element);
-//		} else {
-//			return getElements(element);
-//		}
-//		//return new Object[0];
 	}
 
 	/*
@@ -68,14 +56,7 @@ class DjangoOutlineContentProvider implements ITreeContentProvider {
 	public Object getParent(Object element) {
 		if (element instanceof DjDocTag)
 			return ((DjDocTag)element).parent;
-			//return fInput;
 		return null;
-//		if( element == null)
-//			return null;
-//		
-//		if (element instanceof SegmentModel)
-//			return ((SegmentModel)element).parent;
-//		return null;
 	}
 
 	/*
@@ -84,10 +65,7 @@ class DjangoOutlineContentProvider implements ITreeContentProvider {
 	public boolean hasChildren(Object element) {
 		if (element instanceof DjDocTag)
 			return ((DjDocTag)element).children.size() > 0;
-		return element == fInput;
-//		if (element == fInput) 
-//			return true;
-//		return ((DjDocTag)element).children.size() > 0;
+		return element == fEditorInput;
 	}
 
 	/*
@@ -95,32 +73,16 @@ class DjangoOutlineContentProvider implements ITreeContentProvider {
 	 */
 	public Object[] getElements(Object element) {
 		return fContent.toArray();
-//		if (element instanceof DjDocTag)
-//			return ((DjDocTag)element).children.toArray();
-//		return new Object[0];
 	}
 
 	/*
 	 * @see IContentProvider#inputChanged(Viewer, Object, Object)
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		if (oldInput != null) {
-			IDocument document= fDocumentProvider.getDocument(oldInput);
-			if (document != null) {
-				try {
-					document.removePositionCategory(SEGMENTS);
-				} catch (BadPositionCategoryException x) {}
-				document.removePositionUpdater(fPositionUpdater);
-			}
-		}
-
 		fContent.clear();
-
 		if (newInput != null) {
 			IDocument document= fDocumentProvider.getDocument(newInput);
 			if (document != null) {
-				document.addPositionCategory(SEGMENTS);
-				document.addPositionUpdater(fPositionUpdater);
 				(new DjangoOutlineDocumentParser(fContent)).parseDocument(document);
 			}
 		}

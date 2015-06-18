@@ -41,7 +41,6 @@ public interface IDjangoPartitions {
 	};
 
     // these will be shown in Outline View
-   //public final static TreeMap<String, Image> OUTLINE_CONTENT_TYPES = new TreeMap<String, Image>();
     public final static String[] OUTLINE_CONTENT_TYPES = new String[] {
 //    	DJANGO_DEFAULT,
 //		DJANGO_COMMENT,

@@ -45,6 +45,12 @@ public class DjangoEditor extends TextEditor implements IPropertyChangeListener 
 	}
 
 	@Override
+	protected void initializeKeyBindingScopes() {		
+		setKeyBindingScopes(new String[] { "org.kacprzak.eclipse.django_editor.context.djangoEditorScope" });  //$NON-NLS-1$
+//		setKeyBindingScopes(new String[] { "org.eclipse.ui.textEditorScope" });  //$NON-NLS-1$
+	}
+
+	@Override
 	public void dispose() {
 		DjangoPlugin.getDefault().getPreferenceStore().removePropertyChangeListener(this);
 		if (outlinePage != null)

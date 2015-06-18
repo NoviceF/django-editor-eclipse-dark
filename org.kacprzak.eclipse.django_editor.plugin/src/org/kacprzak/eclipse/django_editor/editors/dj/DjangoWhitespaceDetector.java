@@ -5,6 +5,7 @@ import org.eclipse.jface.text.rules.IWhitespaceDetector;
 public class DjangoWhitespaceDetector implements IWhitespaceDetector {
 
 	public boolean isWhitespace(char c) {
-		return (c == ' ' || c == '\t' || c == '\n' || c == '\r');
+		return Character.isWhitespace(c);
+//		return (c == ' ' || c == '\t' || c == '\n' || c == '\r');
 	}
 }
