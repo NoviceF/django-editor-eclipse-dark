@@ -3,7 +3,7 @@
    <description name="Django Templates Editor" url="http://eclipse.kacprzak.org/updates">
       Django Templates Editor updates page
    </description>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.4.2.201605091.jar" id="org.kacprzak.eclipse.django.feature" version="1.4.2.2016050918">
+   <feature url="features/org.kacprzak.eclipse.django.feature_1.4.2.201605091.jar" id="org.kacprzak.eclipse.django.feature" version="1.4.2.201605091">
       <category name="org.kacprzak.eclipse.django.editor"/>
    </feature>
    <category-def name="org.kacprzak.eclipse.django.editor" label="Django Templates Editor"/>
