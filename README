@@ -1,3 +1,9 @@
+This is edited original project from code.google.com/p/django-editor.
+
+The changes is fix of ouline view of django-editor in eclipse dark theme.
+
+Expected that the plugin you will build manually.
+
 
 Eclipse projects
 ----------------
@@ -8,20 +14,10 @@ org.kacprzak.eclipse.django_editor.plugin
 
 Build
 -----
-1. Open org.kacprzak.eclipse.django_editor.plugin/plugin.xml
+1. Open org.kacprzak.eclipse.django_editor.feature/feature.xml
    - Use Export Wizard
    - Destination: specify directory where to put jar file with plugin
      hint: Browse to select <project>\org.kacprzak.eclipse.django_editor.updates
-2. Open org.kacprzak.eclipse.django_editor.feature/feature.xml
-   - Use Export Wizard
-   - Destination: specify directory where to put jar file with plugin
-     hint: Browse to select <project>\org.kacprzak.eclipse.django_editor.updates
-3. Open org.kacprzak.eclipse.django_editor.updates/site.xml
+2. Open org.kacprzak.eclipse.django_editor.updates/site.xml
    - Build All
-   
-Publish
--------
-1. Copy content of <project>\org.kacprzak.eclipse.django_editor.updates
-   to your updates page.
-   See also: http://eclipse.kacprzak.org/
    
