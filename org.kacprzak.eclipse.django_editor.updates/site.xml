@@ -3,40 +3,7 @@
    <description name="Django Templates Editor" url="http://eclipse.kacprzak.org/updates">
       Django Templates Editor updates page
    </description>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.0.0.jar" id="org.kacprzak.eclipse.django.feature" version="1.0.0">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.1.0.201211221652.jar" id="org.kacprzak.eclipse.django.feature" version="1.1.0.201211221652">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.2.0.201308010030.jar" id="org.kacprzak.eclipse.django.feature" version="1.2.0.201308010030">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.2.1.201308030022.jar" id="org.kacprzak.eclipse.django.feature" version="1.2.1.201308030022">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.3.0.201308181341.jar" id="org.kacprzak.eclipse.django.feature" version="1.3.0.201308181341">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.3.1.201311280125.jar" id="org.kacprzak.eclipse.django.feature" version="1.3.1.201311280125">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.3.2.201312150125.jar" id="org.kacprzak.eclipse.django.feature" version="1.3.2.201312150125">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.3.3.201312150205.jar" id="org.kacprzak.eclipse.django.feature" version="1.3.3.201312150205">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.3.4.201402162101.jar" id="org.kacprzak.eclipse.django.feature" version="1.3.4.201402162101">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.4.0.201411110142.jar" id="org.kacprzak.eclipse.django.feature" version="1.4.0.201411110142">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.4.1.201411151846.jar" id="org.kacprzak.eclipse.django.feature" version="1.4.1.201411151846">
-      <category name="org.kacprzak.eclipse.django.editor"/>
-   </feature>
-   <feature url="features/org.kacprzak.eclipse.django.feature_1.4.2.201506182028.jar" id="org.kacprzak.eclipse.django.feature" version="1.4.2.201506182028">
+   <feature url="features/org.kacprzak.eclipse.django.feature_1.4.2.201605091.jar" id="org.kacprzak.eclipse.django.feature" version="1.4.2.2016050918">
       <category name="org.kacprzak.eclipse.django.editor"/>
    </feature>
    <category-def name="org.kacprzak.eclipse.django.editor" label="Django Templates Editor"/>
